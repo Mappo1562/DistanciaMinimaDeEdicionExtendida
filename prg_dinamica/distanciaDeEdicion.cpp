@@ -18,40 +18,9 @@ describir su valor
 calcular valor
 */
 
-struct nodo{
-    int value;
-    int s;
-    int i;
-    int e;
-    int t;
-};
 
-string sustitucion(string texto, char b){
-    texto[0] = b;
-    return texto;
-}
-
-
-string insercion(string texto, char a){
-    return texto.insert(0,1,a);
-}
-
-
-string eliminacion(string texto){
-    return texto.erase(0,1);
-}
-
-
-string transposicion(string texto, int i){
-    if (i+1 >= texto.size())
-        return "";
-    char aux=texto[i];
-    texto[i]=texto[i+1];
-    texto[i+1]=aux;
-    return texto;
-}
-
-
+string palabra,objetivo;
+vector<vector<int>> tabla;
 
 int set(string& palabra, string& objetivo){
     ifstream data("dataset.txt");
@@ -68,46 +37,74 @@ int set(string& palabra, string& objetivo){
 }
 
 
-int distanciaEdicion(string palabra, string obj){
-    if (palabra.empty()){
+int distanciaEdicion(int i, int j){ // i para recorrer palabra y j para objetivo
+    if (tabla[i][j] > -1)
+        return tabla[i][j];
+
+    // palabra vacia
+    if (i >= palabra.size()){
         int ret=0;
-        for (char c:obj){
-            ret += 1;
+        for (char c:objetivo){
+            ret += 1;  // costo_ins(c)
         }
         return ret;
     }
-    if (obj.empty()){
+    // objetivo vacio
+    if (j >= objetivo.size()){
         int ret=0;
         for (char c:palabra){
-            ret += 1;
+            ret += 1;  // costo_del(c)
         }
         return ret;
     }
+    // caracter igual
+    if (palabra[i] == objetivo[j]){
+        return distanciaEdicion(i++, j++); // se le puede agregar el costo de intercambiar el mismo caracter
+    }
+    
+    int eliminar = distanciaEdicion(i+1,j) + costo_del(palabra[i]);
+    int insertar = distanciaEdicion(i, j+1) + costo_ins(objetivo[j]); 
+    // si se quiere optimizar se puede asumir q la insercion es correcta, el primer
+    // parametro seria la palabra como esta y el segundo la obj DESDE LA POS 1
+    int sustituir = distanciaEdicion(i+1, j+1); 
+    // con sustituir pasa lo mismo, solo que los 2 comenzaran desde pos 1
+    int transponer = INT_MAX;
+    if (i <palabra.size()-1 && j<objetivo.size()-1 && palabra[0] == objetivo[1] && palabra[1] == objetivo[0]){
+        transponer = distanciaEdicion(i+2,j+2) + costo_trans(palabra[i],palabra[i+1]);
+    }
+
+    cout<<"eliminar: "<<eliminar<<"\n";
+    cout<<"insertar "<<insertar<<"\n";
+    cout<<"sustituir: "<<sustituir<<"\n";
+    cout<<"transponer: "<<transponer<<"\n\n";
+    return min(eliminar,min(insertar,min(sustituir,transponer))); // + costo
 }
 
-void init(vector<vector<nodo>> cubo, string palabra, string obj){
-    int aux;
-    for(int i=0;i<palabra.size()){
-        for (int j=0;j<obj.size();j++){
-            aux = 0;
-            if (palabra[i] == palabra[j])
-                aux++;
-            cubo[i][j].value = min(aux,i+1,j+1);
-        }
-    }
+
+void init(){
+    tabla[0][0] = 0;
+    for (int i=1;i<=palabra.size();i++)
+        tabla[i][0] = costo_del(palabra[i-1]);
+    
+    for (int j=1;j<=objetivo.size();j++)
+        tabla[0][j] = costo_ins(objetivo[j-1]);
+    
 }
 
 int main(){
-    string palabra,objetivo;
     if (set(palabra,objetivo)){
         return 1;
     }
 
 
-    vector<vector<nodo>> cubo;
-
     cout<<palabra<<"\n"<<objetivo<<"\n";
-    init(cubo, palabra, obj);
-    cout<<distanciaEdicion(palabra,objetivo)<<"\n";
+    // init(cubo, palabra, obj);
+    tabla.reserve(palabra.size());
+    for (auto X:tabla){
+        X.reserve(objetivo.size());
+    }
+    fill(&tabla[0][0], &tabla[0][0] + palabra.size() * objetivo.size(), -1);
+    init();
+    cout<<distanciaEdicion(palabra.size(),objetivo.size())<<"\n";
     return 0;
 }

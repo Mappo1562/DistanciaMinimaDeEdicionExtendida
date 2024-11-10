@@ -10,34 +10,11 @@ y para correr
     ./out
 */
 
-string sustitucion(string texto, char b){
-    texto[0] = b;
-    return texto;
-}
-
-
-string insercion(string texto, char a){
-    return texto.insert(0,1,a);
-}
-
-
-string eliminacion(string texto){
-    return texto.erase(0,1);
-}
-
-
-string transposicion(string texto, int i){
-    if (i+1 >= texto.size())
-        return "";
-    char aux=texto[i];
-    texto[i]=texto[i+1];
-    texto[i+1]=aux;
-    return texto;
-}
+string palabra, objetivo;
 
 
 
-int set(string& palabra, string& objetivo){
+int set(){
     ifstream data("dataset.txt");
     if (!data){
         cout<<"No se pudo abrir el archivo.\n";
@@ -52,54 +29,53 @@ int set(string& palabra, string& objetivo){
 }
 
 
-int distanciaEdicion(string palabra, string obj, int flag = 1){
+int distanciaEdicion(int i, int j){ // i para recorrer palabra y j para objetivo
     // palabra vacia
-    if (palabra.empty()){
+    if (i >= palabra.size()){
         int ret=0;
-        for (char c:obj){
-            ret += 1;
+        for (char c:objetivo){
+            ret += 1;  // costo_ins(c)
         }
         return ret;
     }
     // objetivo vacio
-    if (obj.empty()){
+    if (j >= objetivo.size()){
         int ret=0;
         for (char c:palabra){
-            ret += 1;
+            ret += 1;  // costo_del(c)
         }
         return ret;
     }
-    // primer caracter igual
-    if (palabra[0] == obj[0])
-        return distanciaEdicion(palabra.substr(1), obj.substr(1));
+    // caracter igual
+    if (palabra[i] == objetivo[j])
+        return distanciaEdicion(i++, j++);
     
-    int eliminar = distanciaEdicion(eliminacion(palabra),obj);
-    int insertar = distanciaEdicion(insercion(palabra,obj[0]).substr(1), obj.substr(1)); 
+    int eliminar = distanciaEdicion(i+1,j) + costo_del(palabra[i]);
+    int insertar = distanciaEdicion(i, j+1) + costo_ins(objetivo[j]); 
     // si se quiere optimizar se puede asumir q la insercion es correcta, el primer
     // parametro seria la palabra como esta y el segundo la obj DESDE LA POS 1
-    int sustituir = distanciaEdicion(sustitucion(palabra,obj[0]).substr(1), obj.substr(1));
+    int sustituir = distanciaEdicion(i+1, j+1); 
     // con sustituir pasa lo mismo, solo que los 2 comenzaran desde pos 1
-    int transponer = 999999999;
-    if (flag){
-        flag=0;
-        transponer = distanciaEdicion(transposicion(palabra,0),obj,0);
+    int transponer = INT_MAX;
+    if (i <palabra.size()-1 && j<objetivo.size()-1 && palabra[0] == objetivo[1] && palabra[1] == objetivo[0]){
+        transponer = distanciaEdicion(i+2,j+2) + costo_trans(palabra[i],palabra[i+1]);
     }
 
     cout<<"eliminar: "<<eliminar<<"\n";
     cout<<"insertar "<<insertar<<"\n";
     cout<<"sustituir: "<<sustituir<<"\n";
     cout<<"transponer: "<<transponer<<"\n\n";
-    return 1 + min(eliminar,min(insertar,min(sustituir,transponer)));
+    return min(eliminar,min(insertar,min(sustituir,transponer)));
 }
 
 int main(){
     string palabra,objetivo;
-    if (set(palabra,objetivo)){
+    if (set()){
         return 1;
     }
 
 
     cout<<palabra<<"\n"<<objetivo<<"\n";
-    cout<<distanciaEdicion(palabra,objetivo)<<"\n";
+    cout<<distanciaEdicion(0,0)<<"\n";
     return 0;
 }
