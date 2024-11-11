@@ -33,7 +33,7 @@ int distanciaEdicion(int i, int j){ // i para recorrer palabra y j para objetivo
     // palabra vacia
     if (i >= palabra.size()){
         int ret=0;
-        for (char c:objetivo){
+        for (char c:objetivo){ // esta malooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
             ret += 1;  // costo_ins(c)
         }
         return ret;
