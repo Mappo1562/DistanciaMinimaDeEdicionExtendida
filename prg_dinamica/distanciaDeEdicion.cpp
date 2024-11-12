@@ -145,38 +145,63 @@ int set(string& palabra, string& objetivo){
     cin.rdbuf(data.rdbuf());
 
     cin>>palabra;
+    palabra = "-"+palabra;
     cin>>objetivo;
+    objetivo = "-"+objetivo;
     data.close();
     return 0;
 }
 
 int distanciaLevenshtein(int i, int j) {
-    // Caso base: si una de las palabras está vacía
-    if (i < 0) return j + 1;  // Insertar los caracteres restantes de `objetivo`
-    if (j < 0) return i + 1;  // Eliminar los caracteres restantes de `palabra`
 
     if (tabla[i][j] != -1) 
         return tabla[i][j];
+    
+    if(i==0){
+        tabla[i][j] = distanciaLevenshtein(0,j-1) + costo_ins(objetivo[j]);
+        return tabla[i][j];
+    }
+    if(j==0){
+        tabla[i][j] = distanciaLevenshtein(i-1,j) + costo_del(palabra[i]);
+        return tabla[i][j];
+    }
 
     if (palabra[i] == objetivo[j]) {
         tabla[i][j] = distanciaLevenshtein(i - 1, j - 1);
     } 
     else {
-        // Caso recursivo: considerar las tres operaciones posibles
-        int eliminar = distanciaLevenshtein(i - 1, j) + 1;
-        int insertar = distanciaLevenshtein(i, j - 1) + 1;
-        int sustituir = distanciaLevenshtein( i - 1, j - 1) + 1;
-        int transponer = INT_MAX;  // Por defecto, es un valor alto para no elegirlo
-        if (i > 0 && j > 0 && palabra[i] == objetivo[j - 1] && palabra[i - 1] == objetivo[j]) {
-            transponer = distanciaLevenshtein(i - 2, j - 2) + 1;
+
+        int eliminar = distanciaLevenshtein(i - 1, j) + costo_del(palabra[i]);
+        int insertar = distanciaLevenshtein(i, j - 1) + costo_ins(objetivo[j]); 
+        int sustituir = distanciaLevenshtein( i - 1, j - 1) + costo_sub(palabra[i],objetivo[j]);
+        int transponer = INT_MAX;  
+        if (i > 1 && j > 1 && palabra[i] == objetivo[j - 1] && palabra[i - 1] == objetivo[j]) {
+            transponer = distanciaLevenshtein(i - 2, j - 2) + costo_trans(palabra[i],palabra[i-1]);
         }
-        // Seleccionar el mínimo entre las tres operaciones
+
         tabla[i][j] = min({eliminar, insertar, sustituir, transponer});
     }
 
     return tabla[i][j];
 }
 
+
+void init(){
+    tabla[0][0] = 0;
+    int acum=0;
+    // objetivo vacio
+    for(int i=1;i<palabra.size();i++){
+        acum += costo_del(palabra[i]);
+        tabla[i][0] = acum;  
+    }
+
+    // palabra vacia
+    acum = 0;
+    for(int j=1;j<objetivo.size();j++){
+        acum += costo_ins(objetivo[j]);
+        tabla[0][j] = acum;  
+    }
+}
 
 
 int main() {
@@ -190,7 +215,8 @@ int main() {
     int m = palabra.size();
     int n = objetivo.size();
     tabla = vector<vector<int>>(m, vector<int>(n, -1));
-    
+    tabla[0][0] = 0;
+    //init();
     // Calcular la distancia de Levenshtein empezando desde el final de ambas palabras
     int distancia = distanciaLevenshtein(m - 1, n - 1);
     cout << "La distancia de Levenshtein entre '" << palabra << "' y '" << objetivo << "' es: " << distancia << endl;

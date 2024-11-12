@@ -2,14 +2,14 @@
 
 \begin{algorithm}[H]
     \SetKwProg{myproc}{Procedure}{}{}
-    \SetKwFunction{AlgorithmName}{AlgorithmName}  % Cambia 'AlgorithmName' por el nombre del enfoque elegido
+    \SetKwFunction{FBDistanciaEdicion}{FBDistanciaEdicion}  % Cambia 'AlgorithmName' por el nombre del enfoque elegido
     \SetKwFunction{AuxiliaryFunction}{AuxiliaryFunction}  % Función auxiliar de ejemplo
     
     \DontPrintSemicolon
     \footnotesize
 
     % Definición del algoritmo principal
-    \myproc{\AlgorithmName{S1, S2}}{
+    \myproc{\FBDistanciaEdicion{S1, S2}}{
     \uIf{S1 está vacía}{
         \Return longitud de S2\;  % Return explícito si S1 está vacía
     }
@@ -17,7 +17,7 @@
         \Return longitud de S1\;  % Return explícito si S2 está vacía
     }
     \uElseIf{S1[0] = S2[0]}{
-        \Return \AlgorithmName{S1[1:], S2[1:]}  % Llamada recursiva
+        \Return \FBDistanciaEdicion{S1[1:], S2[1:]}  % Llamada recursiva
     }
     \Else{
         % Ejemplo de llamado a una función auxiliar
@@ -25,7 +25,6 @@
         \Return costo\;  % Retornar el valor calculado
     }
     }
-
     % Definición de la función auxiliar
     \myproc{\AuxiliaryFunction{S1, S2}}{
     % Acciones o cálculos auxiliares
@@ -34,9 +33,9 @@
     }
     \Else{
         % Llamar de nuevo a la función principal
-        \Return \AlgorithmName{S1 modificado, S2}\;  % Llamada recursiva y retorno del resultado
+        \Return \FBDistanciaEdicion{S1 modificado, S2}\;  % Llamada recursiva y retorno del resultado
     }
     }
-    \caption{Este es solo un ejemplo de cómo estructurar el pseudocódigo, con retornos explícitos y llamados a funciones.}
+    \caption{Prueba}
     \label{alg:mi_algoritmo_1}
 \end{algorithm}
