@@ -1,54 +1,72 @@
 
 \epigraph{\textit{Dynamic programming is not about filling in tables. It's about smart recursion!}}{\citeauthor{algorithms_erickson}, \citeyear{algorithms_erickson} \cite{algorithms_erickson}}
 
-\begin{enumerate}[1)]
+\begin{enumerate}[1]
     \item Describa la solución recursiva.
     \item Escriba la relación de recurrencia, incluyendo condiciones y casos base.
     \item Identifique subproblemas.
     \item Defina estructura de datos a utilizar y especifique el orden de calculo que realiza su programa que utiliza programación dinámica. 
 \end{enumerate}
 
-
+Para este enfoque se utilizo una 
 
 
 \begin{algorithm}[H]
-
     \SetKwProg{myproc}{Procedure}{}{}
-    \SetKwFunction{AlgorithmName}{AlgorithmName}  % Cambia 'AlgorithmName' por el nombre del enfoque elegido
-    \SetKwFunction{AuxiliaryFunction}{AuxiliaryFunction}  % Función auxiliar de ejemplo
+    \SetKwFunction{DistanciaEdicionPD}{DistanciaEdicionPD}
+    \SetKwFunction{set}{set}  % Función auxiliar de ejemplo  
     
     \DontPrintSemicolon
     \footnotesize
 
+    \SetKw{KwVar}{String}
+    \KwVar{palabra, objetivo}\;
+
+    \SetKw{KwVar}{Matriz}
+    \KwVar{tabla}\;
+
+
     % Definición del algoritmo principal
-    \myproc{\AlgorithmName{S1, S2}}{
-    \uIf{S1 está vacía}{
-        \Return longitud de S2\;  % Return explícito si S1 está vacía
-    }
-    \uElseIf{S2 está vacía}{
-        \Return longitud de S1\;  % Return explícito si S2 está vacía
-    }
-    \uElseIf{S1[0] = S2[0]}{
-        \Return \AlgorithmName{S1[1:], S2[1:]}  % Llamada recursiva
-    }
-    \Else{
-        % Ejemplo de llamado a una función auxiliar
-        $costo \leftarrow \AuxiliaryFunction{S1, S2}$\;
-        \Return costo\;  % Retornar el valor calculado
-    }
+    \myproc{\DistanciaEdicionPD{i, j}}{
+    \uIf{$tabla_{ij}$ != -1}{
+        \Return $tabla_{ij}$\;  
     }
 
-    % Definición de la función auxiliar
-    \myproc{\AuxiliaryFunction{S1, S2}}{
-    % Acciones o cálculos auxiliares
-    \uIf{S1 y S2 son similares}{
-        \Return algún valor o costo\;  % Retornar el valor calculado por la función auxiliar
+    \uIf{palabra vacia (i == 0)}{
+        $tabla_{ij}$ $\leftarrow$ (costo insertar $objetivo_{j}$) + \DistanciaEdicionPD{i, j-1}\;
+        \Return $tabla_{ij}$
     }
-    \Else{
-        % Llamar de nuevo a la función principal
-        \Return \AlgorithmName{S1 modificado, S2}\;  % Llamada recursiva y retorno del resultado
+    \uIf{objetivo vacio (j == 0)}{
+        $tabla_{ij}$ $\leftarrow$ (costo eliminar $palabra_{i}$) + \DistanciaEdicionPD{i-1, j}\;
+        \Return $tabla_{ij}$\;
     }
+    \uIf{palabra[i] == objetivo[j]}{
+        \Return \DistanciaEdicionPD{i-1, j-1}  % Llamada recursiva
     }
-    \caption{Este es solo un ejemplo de cómo estructurar el pseudocódigo, con retornos explícitos y llamados a funciones.}
+
+    eliminar $\leftarrow$ \DistanciaEdicionPD{i-1, j} + (costo eliminar $palabra_{i}$)\;
+
+    insertar $\leftarrow$ \DistanciaEdicionPD{i, j-1} + (costo insertar $objetivo_{j}$)\;
+    sustituir $\leftarrow$ \DistanciaEdicionPD{i-1, j-1} + (costo sustituir $palabra_{i}$ por $objetivo_{j}$)\;
+    transponer $\leftarrow$ $\infty$ \;
+    \uIf{i y j son > 0 and $palabra_{i}$ == $objetivo_{j-1}$ and $palabra_{i-1}$ == $objetivo_{j}$}{
+        transponer $\leftarrow$ \DistanciaEdicionPD{i-2, j-2} + (costo transponer $palabra_{i}$ por $palabra_{i-1}$)\;
+    }
+    
+    $tabla_{ij}$ $\leftarrow$ (minimo entre eliminar, insertar, sustituir, transponer)\;
+    \Return $tabla_{ij}$\;
+    }
+
+
+    \myproc{\set{}}{
+        ...\\
+        palabra $\leftarrow$ $"-"$ $+$ leertxt\\
+        objetivo $\leftarrow$ $"-"$ $+$ leertxt \\
+        setear tabla con valores -1 \\
+        tabla[0][0] $\leftarrow$ 0 \\
+        ...
+        }
+
+    \caption{Distancia Minima de Edición - Programación Dinamica}
     \label{alg:mi_algoritmo_2}
 \end{algorithm}

@@ -154,6 +154,7 @@ int distanciaLevenshtein(int i, int j) {
     if (tabla[i][j] != -1) 
         return tabla[i][j];
     
+    
     if(i==0){
         tabla[i][j] = distanciaLevenshtein(0,j-1) + costo_ins(objetivo[j]);
         return tabla[i][j];

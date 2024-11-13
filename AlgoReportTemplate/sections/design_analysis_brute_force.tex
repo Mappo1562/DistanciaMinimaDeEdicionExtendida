@@ -8,7 +8,7 @@
     \footnotesize
 
     \SetKw{KwVar}{String}
-    \KwVar{palabra, objetivo}\\
+    \KwVar{palabra, objetivo}\;
 
     % Definición del algoritmo principal
     \myproc{\DistanciaEdicionFB{i, j}}{
@@ -28,9 +28,9 @@
     eliminar $\leftarrow$ \DistanciaEdicionFB{i-1, j} + (costo eliminar $palabra_{i}$)\;
     insertar $\leftarrow$ \DistanciaEdicionFB{i, j-1} + (costo insertar $objetivo_{j}$)\;
     sustituir $\leftarrow$ \DistanciaEdicionFB{i-1, j-1} + (costo sustituir $palabra_{i}$ por $objetivo_{j}$)\;
-    insertar $\leftarrow$ $\infty$ \;
+    transponer $\leftarrow$ $\infty$ \;
     \uIf{i y j son > 0 and $palabra_{i}$ == $objetivo_{j-1}$ and $palabra_{i-1}$ == $objetivo_{j}$}{
-        insertar $\leftarrow$ \DistanciaEdicionFB{i-2, j-2} + (costo transponer $palabra_{i}$ por $palabra_{i-1}$)\;
+        transponer $\leftarrow$ \DistanciaEdicionFB{i-2, j-2} + (costo transponer $palabra_{i}$ por $palabra_{i-1}$)\;
     }
     
     \Return (minimo entre eliminar, insertar, sustituir, transponer)\;  
