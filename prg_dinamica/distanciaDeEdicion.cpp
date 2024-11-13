@@ -127,10 +127,7 @@ int main(){
 void imprimirTabla() {
     for (const auto& fila : tabla) {
         for (int valor : fila) {
-            if (valor == INT_MAX)  // Opcional: manejo especial para INT_MAX
-                cout << "INF ";
-            else
-                cout << valor << " ";
+            cout << valor << " ";
         }
         cout << endl;
     }
@@ -186,23 +183,6 @@ int distanciaLevenshtein(int i, int j) {
 }
 
 
-void init(){
-    tabla[0][0] = 0;
-    int acum=0;
-    // objetivo vacio
-    for(int i=1;i<palabra.size();i++){
-        acum += costo_del(palabra[i]);
-        tabla[i][0] = acum;  
-    }
-
-    // palabra vacia
-    acum = 0;
-    for(int j=1;j<objetivo.size();j++){
-        acum += costo_ins(objetivo[j]);
-        tabla[0][j] = acum;  
-    }
-}
-
 
 int main() {
     if (set(palabra,objetivo)){
@@ -216,7 +196,6 @@ int main() {
     int n = objetivo.size();
     tabla = vector<vector<int>>(m, vector<int>(n, -1));
     tabla[0][0] = 0;
-    //init();
     // Calcular la distancia de Levenshtein empezando desde el final de ambas palabras
     int distancia = distanciaLevenshtein(m - 1, n - 1);
     cout << "La distancia de Levenshtein entre '" << palabra << "' y '" << objetivo << "' es: " << distancia << endl;

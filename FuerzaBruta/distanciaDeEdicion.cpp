@@ -28,46 +28,51 @@ int set(){
 }
 
 
-int distanciaEdicion(unsigned int i,unsigned int j){ // i para recorrer palabra y j para objetivo
-    // cout<<c++<<"\n";
-    // palabra vacia
-    if (i >= palabra.size()){
-        int ret=0;
-        while (j<objetivo.size()){ // esta malooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
-            ret += costo_ins(objetivo[j]);  // costo_ins(c)
-            j++;
+
+
+int distanciaEdicion(int i, int j) {
+    if (i<0 && j<0)
+        return 0;
+    // palabra vacía
+    if (i < 0) {
+        /*
+        int ret = 0;
+        while (j >= 0) {
+            ret += costo_ins(objetivo[j]);  // insertar caracteres restantes de objetivo
+            j--;
         }
         return ret;
+        */
+        return costo_ins(objetivo[j]) + distanciaEdicion(i,j-1);
     }
-    // objetivo vacio
-    if (j >= objetivo.size()){
-        int ret=0;
-        while (i<palabra.size()){
-            ret += costo_del(palabra[i]);  // costo_del(c)
-            i++;
+    // objetivo vacío
+    if (j < 0) {
+        /*
+        int ret = 0;
+        while (i >= 0) {
+            ret += costo_del(palabra[i]);  // eliminar caracteres restantes de palabra
+            i--;
         }
         return ret;
+        */
+        return costo_del(palabra[i]) + distanciaEdicion(i-1,j);
     }
-    // caracter igual
-    if (palabra[i] == objetivo[j])
-        return distanciaEdicion(i+1, j+1);
+    // caracteres iguales
+    if (palabra[i] == objetivo[j]) {
+        return distanciaEdicion(i - 1, j - 1);
+    }
     
-    int eliminar = distanciaEdicion(i+1,j) + costo_del(palabra[i]);
-    int insertar = distanciaEdicion(i, j+1) + costo_ins(objetivo[j]); 
-    // si se quiere optimizar se puede asumir q la insercion es correcta, el primer
-    // parametro seria la palabra como esta y el segundo la obj DESDE LA POS 1
-    int sustituir = distanciaEdicion(i+1, j+1) + costo_sub(palabra[i],objetivo[j]); 
-    // con sustituir pasa lo mismo, solo que los 2 comenzaran desde pos 1
+    // operaciones de edición
+    int eliminar = distanciaEdicion(i - 1, j) + costo_del(palabra[i]);
+    int insertar = distanciaEdicion(i, j - 1) + costo_ins(objetivo[j]);
+    int sustituir = distanciaEdicion(i - 1, j - 1) + costo_sub(palabra[i], objetivo[j]);
+    
     int transponer = INT_MAX;
-    if (i <palabra.size()-1 && j<objetivo.size()-1 && palabra[0] == objetivo[1] && palabra[1] == objetivo[0]){
-        transponer = distanciaEdicion(i+2,j+2) + costo_trans(palabra[i],palabra[i+1]);
+    if (i > 0 && j > 0 && palabra[i] == objetivo[j - 1] && palabra[i - 1] == objetivo[j]) {
+        transponer = distanciaEdicion(i - 2, j - 2) + costo_trans(palabra[i], palabra[i - 1]);
     }
 
-    cout<<"eliminar: "<<eliminar<<"\n";
-    cout<<"insertar "<<insertar<<"\n";
-    cout<<"sustituir: "<<sustituir<<"\n";
-    cout<<"transponer: "<<transponer<<"\n\n";
-    return min({eliminar,insertar,sustituir,transponer});
+    return min({eliminar, insertar, sustituir, transponer});
 }
 
 
@@ -78,6 +83,6 @@ int main(){
 
 
     cout<<palabra<<"\n"<<objetivo<<"\n";
-    cout<<distanciaEdicion(0,0)<<"\n";
+    cout<<distanciaEdicion(palabra.size()-1,objetivo.size()-1)<<"\n";
     return 0;
 }

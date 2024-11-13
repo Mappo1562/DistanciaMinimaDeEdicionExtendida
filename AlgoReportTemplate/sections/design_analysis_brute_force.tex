@@ -2,40 +2,41 @@
 
 \begin{algorithm}[H]
     \SetKwProg{myproc}{Procedure}{}{}
-    \SetKwFunction{FBDistanciaEdicion}{FBDistanciaEdicion}  % Cambia 'AlgorithmName' por el nombre del enfoque elegido
-    \SetKwFunction{AuxiliaryFunction}{AuxiliaryFunction}  % Función auxiliar de ejemplo
+    \SetKwFunction{DistanciaEdicionFB}{DistanciaEdicionFB}  
     
     \DontPrintSemicolon
     \footnotesize
 
+    \SetKw{KwVar}{String}
+    \KwVar{palabra, objetivo}\\
+
     % Definición del algoritmo principal
-    \myproc{\FBDistanciaEdicion{S1, S2}}{
-    \uIf{S1 está vacía}{
-        \Return longitud de S2\;  % Return explícito si S1 está vacía
+    \myproc{\DistanciaEdicionFB{i, j}}{
+    \uIf{palabra vacia (i < 0)  and  objetivo vacio (j < 0)}{
+        \Return 0\;  % Return explícito si S1 está vacía
     }
-    \uElseIf{S2 está vacía}{
-        \Return longitud de S1\;  % Return explícito si S2 está vacía
+    \uIf{palabra vacia (i < 0)}{
+        \Return (costo insertar $objetivo_{j}$) + \DistanciaEdicionFB{i, j-1}\;
     }
-    \uElseIf{S1[0] = S2[0]}{
-        \Return \FBDistanciaEdicion{S1[1:], S2[1:]}  % Llamada recursiva
+    \uIf{objetivo vacio (j < 0)}{
+        \Return (costo eliminar $palabra_{i}$) + \DistanciaEdicionFB{i-1, j}\;
     }
-    \Else{
-        % Ejemplo de llamado a una función auxiliar
-        $costo \leftarrow \AuxiliaryFunction{S1, S2}$\;
-        \Return costo\;  % Retornar el valor calculado
+    \uIf{palabra[i] == objetivo[j]}{
+        \Return \DistanciaEdicionFB{i-1, j-1}  % Llamada recursiva
     }
+
+    eliminar $\leftarrow$ \DistanciaEdicionFB{i-1, j} + (costo eliminar $palabra_{i}$)\;
+    insertar $\leftarrow$ \DistanciaEdicionFB{i, j-1} + (costo insertar $objetivo_{j}$)\;
+    sustituir $\leftarrow$ \DistanciaEdicionFB{i-1, j-1} + (costo sustituir $palabra_{i}$ por $objetivo_{j}$)\;
+    insertar $\leftarrow$ $\infty$ \;
+    \uIf{i y j son > 0 and $palabra_{i}$ == $objetivo_{j-1}$ and $palabra_{i-1}$ == $objetivo_{j}$}{
+        insertar $\leftarrow$ \DistanciaEdicionFB{i-2, j-2} + (costo transponer $palabra_{i}$ por $palabra_{i-1}$)\;
     }
-    % Definición de la función auxiliar
-    \myproc{\AuxiliaryFunction{S1, S2}}{
-    % Acciones o cálculos auxiliares
-    \uIf{S1 y S2 son similares}{
-        \Return algún valor o costo\;  % Retornar el valor calculado por la función auxiliar
+    
+    \Return (minimo entre eliminar, insertar, sustituir, transponer)\;  
+
     }
-    \Else{
-        % Llamar de nuevo a la función principal
-        \Return \FBDistanciaEdicion{S1 modificado, S2}\;  % Llamada recursiva y retorno del resultado
-    }
-    }
-    \caption{Prueba}
+
+    \caption{Distancia Minima de Edición - Fuerza Bruta}
     \label{alg:mi_algoritmo_1}
 \end{algorithm}

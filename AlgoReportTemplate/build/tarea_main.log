@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.11)  11 NOV 2024 23:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.11)  12 NOV 2024 23:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1544,19 +1544,25 @@ Package cleveref Info: loaded `spanish' language definitions on input line 1.
 ] (sections/introduction.tex)
 
 [2] (sections/design_analysis.tex
+Underfull \hbox (badness 10000) in paragraph at lines 11--15
+
+ []
+
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 10.07397pt on input line 16.
+(Font)              scaled to size 10.07397pt on input line 28.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 7.63599pt on input line 16.
+(Font)              scaled to size 7.63599pt on input line 28.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 5.51999pt on input line 16.
+(Font)              scaled to size 5.51999pt on input line 28.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 10.07397pt on input line 16.
+(Font)              scaled to size 10.07397pt on input line 28.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 7.63599pt on input line 16.
+(Font)              scaled to size 7.63599pt on input line 28.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 5.51999pt on input line 16.
-) (sections/design_analysis_brute_force.tex
+(Font)              scaled to size 5.51999pt on input line 28.
+
+
+[3]) (sections/design_analysis_brute_force.tex
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
 (Font)              scaled to size 9.19998pt on input line 1.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
@@ -1565,11 +1571,9 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 (Font)              scaled to size 9.19998pt on input line 1.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
 (Font)              scaled to size 6.99199pt on input line 1.
-)
+) (sections/design_analysis_dynamic_programming.tex
 
-[3] (sections/design_analysis_dynamic_programming.tex)
-
-[4]
+[4])
 
 [5] (sections/implementations.tex)
 
@@ -1582,7 +1586,7 @@ Package mdframed Info: Not enough space on this page on input line 3.
  (tikz/plot1.tex) (tikz/plot2.tex) (tikz/plot3.tex)
 
 [8]
-<images/4_impurezas_cantmax_size10.png, id=147, 1204.5pt x 1204.5pt>
+<images/4_impurezas_cantmax_size10.png, id=149, 1204.5pt x 1204.5pt>
 File: images/4_impurezas_cantmax_size10.png Graphic file (type png)
 <use images/4_impurezas_cantmax_size10.png>
 Package pdftex.def Info: images/4_impurezas_cantmax_size10.png  used on input line 37.
@@ -1626,17 +1630,17 @@ Package logreq Info: Writing requests to 'tarea_main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 56175 strings out of 473681
- 1286821 string characters out of 5719194
- 2243026 words of memory out of 5000000
- 78292 multiletter control sequences out of 15000+600000
- 727433 words of font info for 178 fonts, out of 8000000 for 9000
+ 56194 strings out of 473681
+ 1287027 string characters out of 5719194
+ 2243027 words of memory out of 5000000
+ 78302 multiletter control sequences out of 15000+600000
+ 729236 words of font info for 185 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  107i,21n,110p,7264b,2495s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\admin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/fourier/fourier-mlit.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/fourier/fourier-ms.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/adobe/utopia/putb8a.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/adobe/utopia/putbi8a.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/adobe/utopia/putr8a.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/adobe/utopia/putri8a.pfb>
-Output written on "c:\Users\admin\OneDrive\archivos para estudiar\2024-2\algoco\tarea2-3\AlgoReportTemplate\build\tarea_main.pdf" (12 pages, 207944 bytes).
+Output written on "c:\Users\admin\OneDrive\archivos para estudiar\2024-2\algoco\tarea2-3\AlgoReportTemplate\build\tarea_main.pdf" (12 pages, 210676 bytes).
 PDF statistics:
- 277 PDF objects out of 1000 (max. 8388607)
- 76 named destinations out of 1000 (max. 500000)
+ 279 PDF objects out of 1000 (max. 8388607)
+ 78 named destinations out of 1000 (max. 500000)
  74 words of extra memory for PDF output out of 10000 (max. 10000000)
 

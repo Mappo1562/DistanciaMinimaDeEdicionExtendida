@@ -1,5 +1,17 @@
-Para los dos paradigmas de programación utilizados, se utilizo de estrategia la idea de calcular todos los costos posibles recursivamente, para finalmente elegir el minimo, es decir, se tendra una llamada recursiva cuando la funcion sea sustituir, insertar, eliminar o transponer, donde cada una obtendra su respectivo coste, eligiendo asi el minimo entre estos.
+Para los dos paradigmas de programación utilizados, se utilizo de estrategia la idea de calcular todos los costos posibles recursivamente, para finalmente elegir el minimo, es decir, se tendra una llamada recursiva cuando la funcion sea sustituir, insertar, eliminar o transponer, donde cada una obtendra su respectivo coste, eligiendo asi el minimo entre estos.\\
+Las diferencia con el problema de minima distancia entre cadenas es que ahora se podra ejecutar con distintos costos, y tambien se le agrega la funcion de transponer, donde a esta solo se le considero intercambiar con el caracter que tiene adelante solo si los dos caracteres resultantes quedan en la posicion que deberian segun la cadena 2, \\por ejemplo:
 
+palabra: ab
+
+objetivo: ba\\ 
+en este casi si se podra ejecutar una transposición, \\sin embargo si se tiene algo del tipo:
+
+palabra: acb
+
+objetivo: ba\\ 
+no se podra resolver con transposiciones, ya que primero necesitamos eliminar 'c' para que luego sea factible la transposición, sin embargo esto no estara soportado por los algoritmos
+\\ \\
+La entrada consiste en dos cadenas de caracteres, la primera sera la que buscaremos transformar a la segunda, estas dos las etiquetaremos, la primera sera simplemente \textbf{palabra}, y la segunda sera \textbf{objetivo}, estas dos serán guardadas como variables globales para las dos implementaciones, también los costos de cada funcion estaran designados de forma matricial/vectorial que especificara cada costo especifico dependiendo de cual/es caracteres esten implicados.
 
 \begin{mdframed}
     \textbf{La extensión máxima para esta sección es de 5 páginas.}

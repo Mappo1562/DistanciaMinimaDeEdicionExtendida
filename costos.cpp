@@ -12,7 +12,9 @@ int costo_sub(char a, char b){
     int auxa = static_cast<int>(a);
     int auxb = static_cast<int>(b);
     costo = auxa + 2 * auxb;
-    return 1;
+    if (a==b)
+        return 0;
+    return 2;
 }
 
 int costo_ins(char a){
