@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber build/tarea_main"] 1731524271.51101 "build/tarea_main.bcf" "build/tarea_main.bbl" "build/tarea_main" 1731526280.22492 0
-  "build/tarea_main.bcf" 1731526279 109830 ff3b1547bbe67c71a2eca09bbb89338b "pdflatex"
+["biber build/tarea_main"] 1731524271.51101 "build/tarea_main.bcf" "build/tarea_main.bbl" "build/tarea_main" 1731527000.26257 0
+  "build/tarea_main.bcf" 1731526999 109830 ff3b1547bbe67c71a2eca09bbb89338b "pdflatex"
   "references.bib" 1731435870 2316 085c5b26f2f30d734bd4df514e7a1ee9 ""
   (generated)
   "build/tarea_main.bbl"
   "build/tarea_main.blg"
   (rewritten before read)
-["pdflatex"] 1731526273.31925 "c:/Users/Aleja/Documents/tarea2-3/AlgoReportTemplate/tarea_main.tex" "build/tarea_main.pdf" "tarea_main" 1731526280.22619 0
+["pdflatex"] 1731526995.98657 "c:/Users/Aleja/Documents/tarea2-3/AlgoReportTemplate/tarea_main.tex" "build/tarea_main.pdf" "tarea_main" 1731527000.26395 0
   "C:/Users/Aleja/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1731521492 82665 3eb0bcc9d631fc78d736d6e53fe0e9b2 ""
   "C:/Users/Aleja/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ectt1095.pk" 1731521489 21972 9b4ad21bad61a37fe1af93ec0821287f ""
   "C:/Users/Aleja/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1731521483 688 37338d6ab346c2f1466b29e195316aa4 ""
@@ -312,11 +312,11 @@
   "C:/Users/Aleja/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-abspage.sty" 1695383086 2269 4fe6fb3396214c91f164d45faf9bec45 ""
   "C:/Users/Aleja/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-base.sty" 1695383086 20785 f7d1133a287929598a897c93f8f4c44b ""
   "author.tex" 1731435870 395 f0e15b3b20e34d13389e634678790f7f ""
-  "build/tarea_main.aux" 1731526279 5651 457ca8351ecfcad49cfb35eb415612f7 "pdflatex"
+  "build/tarea_main.aux" 1731526999 5651 457ca8351ecfcad49cfb35eb415612f7 "pdflatex"
   "build/tarea_main.bbl" 1731524284 11732 73e6e4a90db6d63c6d4a1e3c40adda30 "biber build/tarea_main"
-  "build/tarea_main.out" 1731526279 914 f9f8b60de6284405ddc8af7482a432c4 "pdflatex"
-  "build/tarea_main.run.xml" 1731526279 2347 3a149f2168a09cc18164f684ae49c28d "pdflatex"
-  "build/tarea_main.toc" 1731526279 883 fef7fcb557c5b8cd64204c3bc7ce5c76 "pdflatex"
+  "build/tarea_main.out" 1731526999 914 f9f8b60de6284405ddc8af7482a432c4 "pdflatex"
+  "build/tarea_main.run.xml" 1731526999 2347 3a149f2168a09cc18164f684ae49c28d "pdflatex"
+  "build/tarea_main.toc" 1731526999 883 fef7fcb557c5b8cd64204c3bc7ce5c76 "pdflatex"
   "c:/Users/Aleja/Documents/tarea2-3/AlgoReportTemplate/tarea_main.tex" 1731435870 1841 173144734cafaa4caf15a034e8937701 ""
   "condiciones.tex" 1731435870 3647 2b68a99949c9fbb84bc0bb6a89bdc1c0 ""
   "images/4_impurezas_cantmax_size10.png" 1731435870 94195 ecc5c6a7c21ac6b32302f16a387a8f26 ""
@@ -326,7 +326,7 @@
   "sections/conclusions.tex" 1731435870 1707 816cf3e1532fac1114793ded1f756f4e ""
   "sections/design_analysis.tex" 1731522016 3788 2f4d270755dcf4b2aaae78f088090a16 ""
   "sections/design_analysis_brute_force.tex" 1731525198 1822 7134b6d8dc7ab24e9e57313daaed167b ""
-  "sections/design_analysis_dynamic_programming.tex" 1731526272 2618 aaee4c5cb4cdb0ef5da0f11c31b505d7 ""
+  "sections/design_analysis_dynamic_programming.tex" 1731526995 2757 83c2bd4e0c2739eba45fdef291b4d571 ""
   "sections/experiment_dataset.tex" 1731435870 1400 0c198ec592f167298760db80765097c7 ""
   "sections/experiment_intro.tex" 1731435870 1149 85f81d687df91ddcc0b4420993f9d3d5 ""
   "sections/experiment_results.tex" 1731435870 3038 383170a4f86b6ebd5932fa244371ca4c ""
