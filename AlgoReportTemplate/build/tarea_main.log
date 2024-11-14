@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.11)  13 NOV 2024 23:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.11)  14 NOV 2024 13:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1543,12 +1543,7 @@ Package cleveref Info: loaded `spanish' language definitions on input line 1.
 
 ] (sections/introduction.tex)
 
-[2] (sections/design_analysis.tex
-Underfull \hbox (badness 10000) in paragraph at lines 11--16
-
- []
-
-) (sections/design_analysis_brute_force.tex
+[2] (sections/design_analysis.tex) (sections/design_analysis_brute_force.tex
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
 (Font)              scaled to size 9.19998pt on input line 1.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
@@ -1572,28 +1567,30 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 
 
 [3]
-
-[4])
-Underfull \hbox (badness 10000) in paragraph at lines 70--71
+Underfull \hbox (badness 10000) in paragraph at lines 74--75
 
  []
 
-(sections/design_analysis_dynamic_programming.tex)
 
-[5]
 
-[6] (sections/implementations.tex)
+[4]
 
-[7] (sections/experiment_intro.tex) (sections/experiment_dataset.tex) (sections/experiment_results.tex
+[5]) (sections/design_analysis_dynamic_programming.tex)
+
+[6]
+
+[7] (sections/implementations.tex)
+
+[8] (sections/experiment_intro.tex) (sections/experiment_dataset.tex) (sections/experiment_results.tex
 Package mdframed Info: Not enough space on this page on input line 3.
 
 
-[8]
+[9]
 Package mdframed Info: Not enough space on this page on input line 3.
  (tikz/plot1.tex) (tikz/plot2.tex) (tikz/plot3.tex)
 
-[9]
-<images/4_impurezas_cantmax_size10.png, id=158, 1204.5pt x 1204.5pt>
+[10]
+<images/4_impurezas_cantmax_size10.png, id=162, 1204.5pt x 1204.5pt>
 File: images/4_impurezas_cantmax_size10.png Graphic file (type png)
 <use images/4_impurezas_cantmax_size10.png>
 Package pdftex.def Info: images/4_impurezas_cantmax_size10.png  used on input line 37.
@@ -1604,23 +1601,23 @@ Package pdftex.def Info: images/4_impurezas_cantmax_size10.png  used on input li
 (pdftex.def)             Requested size: 236.01561pt x 236.00687pt.
 )
 
-[10 <./images/4_impurezas_cantmax_size10.png>] (sections/conclusions.tex)
+[11 <./images/4_impurezas_cantmax_size10.png>] (sections/conclusions.tex)
 
-[11] (condiciones.tex
+[12] (condiciones.tex
 Overfull \hbox (5.05753pt too wide) in paragraph at lines 33--34
 []\T1/futs/m/n/10.95 No mo-di-fi-que \T1/cmtt/m/n/10.95 preamble.tex\T1/futs/m/n/10.95 , \T1/cmtt/m/n/10.95 tarea_main.tex\T1/futs/m/n/10.95 , \T1/cmtt/m/n/10.95 condiciones.tex\T1/futs/m/n/10.95 , es-truc-tu-ra de di-rec-to-rios, nom-
  []
 
 )
 
-[12] (sections/appendix1.tex)
+[13] (sections/appendix1.tex)
 Overfull \hbox (30.53627pt too wide) in paragraph at lines 102--102
 []\T1/futs/m/n/10.95 K. Pop-per. \T1/futs/m/it/10.95 The Lo-gic of Scien-ti-fic Dis-co-very\T1/futs/m/n/10.95 . Routled-ge Clas-sics. Tay-lor & Fran-cis, 2005. \T1/futs/m/sc/10.95 isbn\T1/futs/m/n/10.95 : 9781134470020.
  []
 
 
 
-[13] (c:\Users\admin\OneDrive\archivos para estudiar\2024-2\algoco\tarea2-3\AlgoReportTemplate\build\tarea_main.aux
+[14] (c:\Users\admin\OneDrive\archivos para estudiar\2024-2\algoco\tarea2-3\AlgoReportTemplate\build\tarea_main.aux
 LaTeX Info: Redefining \sptext on input line 16.
 LaTeX Info: Redefining \. on input line 16.
 LaTeX Info: Redefining \% on input line 16.
@@ -1637,17 +1634,17 @@ Package logreq Info: Writing requests to 'tarea_main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 56191 strings out of 473681
- 1286605 string characters out of 5719194
- 2242832 words of memory out of 5000000
- 78288 multiletter control sequences out of 15000+600000
- 708078 words of font info for 181 fonts, out of 8000000 for 9000
+ 56199 strings out of 473681
+ 1286733 string characters out of 5719194
+ 2242836 words of memory out of 5000000
+ 78292 multiletter control sequences out of 15000+600000
+ 709037 words of font info for 184 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  107i,21n,110p,7264b,2495s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\admin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/fourier/fourier-mlit.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/fourier/fourier-ms.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/adobe/utopia/putb8a.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/adobe/utopia/putbi8a.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/adobe/utopia/putr8a.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/adobe/utopia/putri8a.pfb>
-Output written on "c:\Users\admin\OneDrive\archivos para estudiar\2024-2\algoco\tarea2-3\AlgoReportTemplate\build\tarea_main.pdf" (13 pages, 212428 bytes).
+Output written on "c:\Users\admin\OneDrive\archivos para estudiar\2024-2\algoco\tarea2-3\AlgoReportTemplate\build\tarea_main.pdf" (14 pages, 215096 bytes).
 PDF statistics:
- 287 PDF objects out of 1000 (max. 8388607)
- 89 named destinations out of 1000 (max. 500000)
+ 291 PDF objects out of 1000 (max. 8388607)
+ 90 named destinations out of 1000 (max. 500000)
  74 words of extra memory for PDF output out of 10000 (max. 10000000)
 

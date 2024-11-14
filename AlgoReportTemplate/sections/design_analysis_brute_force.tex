@@ -42,9 +42,38 @@ Para el enfoque de fuerza bruta tenemos dos variables globales (strings), una se
     \caption{Distancia Minima de Edición - Fuerza Bruta}
     \label{alg:mi_algoritmo_1}
 \end{algorithm}
+\vspace{0.5em}
+Analizando este algoritmo tenemos que en el peor caso se generan 4 llamadas recursivas, las cuales son:
 
+\begin{enumerate}[1]
+    \item Eliminar:  DistanciaEdicionFB(i-1, j)
+    \item Insertar:  DistanciaEdicionFB(i, j-1)
+    \item Sustituir: DistanciaEdicionFB(i-1, j-1)
+    \item transponer: DistanciaEdicionFB(i-2, j-2)
+\end{enumerate}
 
-Ejemplo:\\
+por ende podemos generar una relacion de recurrencia que se aproxima al problema , esta es:
+\[
+    T(i,j) = 4*T(i-1,j-1)
+\]
+ademas tenemos que T(-1,-1) = 1, esto ya que en este caso solo retornara 0, dejando que el problema trivial de dos palabras vacias $\in $ O(1), ahora si tenemos una palabra de tamaño n, y un objetivo de tamaño m, tendremos que T(n,m) ira aumentando en potencia de 4, es decir:
+\[
+    T(n,m) = 4*T(n-1,m-1)
+\]
+\[
+    T(n,m) = 4*4*T(n-2,m-2)
+\]
+\[
+    T(n,m) = 4*4*...*T(-1,-1)
+\]
+Hay que tener en cuenta de que la relacion de recurrencia no se cumple siempre, por ejemplo si i<0, tenemos que ya no habran 4 llamadas recursivas sino 1, por ende como estamos considerando el peor caso tendremos una cota superior para la complejidad temporal, que será:
+\[
+    T(n,m) \in  O(4^{max(n,m)})
+\]
+
+Para la complejidad espacial tenemos que, ignorando la utilizacion de matrices/vectores de costos, el algoritmo utilizara un espacio extra O(1)\\
+
+Ejemplo de ejecucion:\\
 considerando los siquientes costos:
 \begin{itemize}
     \item $costo\_sub(a,b) = 3$ si $a \neq b$ y $0$ si $a = b$
@@ -67,7 +96,5 @@ Con el proposito de resumir, solo se considerara el camino mas optimo para conse
     \item DistanciaEdicionFB(-1, 0)\\Ahora i pasa a ser negativo, esto indica que el subproblema se limita a solo agregar los caracteres que faltan (if de la linea 5 pseudocodigo), como solo nos queda esta opcion  la llamada recursiva sera con \textbf{i = -1} y \textbf{j = -1}.
     \item DistanciaEdicionFB(-1, -1)\\Como los dos indices son negativos retorna 0, indicando que ha terminado.
 \end{itemize}
-Recopilando los costos efectuados tenemos:\\
-0 + 1 + 1 + 1\\
-que corresponden a\\
-terminar + insertar + eliminar + eliminar + transponer\\
+Recopilando los costos efectuados tenemos un total de 3, que corresponden a:\\
+terminar(0) + insertar(1) + eliminar(1) + eliminar(1) + transponer(0)

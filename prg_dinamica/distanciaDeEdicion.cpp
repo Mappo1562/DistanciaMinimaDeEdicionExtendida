@@ -193,12 +193,12 @@ int main() {
     cout<<palabra<<"\n"<<objetivo<<"\n";
     
     // Inicializar la matriz de memoización con -1 (no calculado)
-    int m = palabra.size();
-    int n = objetivo.size();
-    tabla = vector<vector<int>>(m, vector<int>(n, -1));
+    int n = palabra.size();
+    int m = objetivo.size();
+    tabla = vector<vector<int>>(n, vector<int>(m, -1));
     tabla[0][0] = 0;
     // Calcular la distancia de Levenshtein empezando desde el final de ambas palabras
-    int distancia = distanciaLevenshtein(m - 1, n - 1);
+    int distancia = distanciaLevenshtein(n - 1, m - 1);
     cout << "La distancia de Levenshtein entre '" << palabra << "' y '" << objetivo << "' es: " << distancia << endl;
     imprimirTabla();
     return 0;
