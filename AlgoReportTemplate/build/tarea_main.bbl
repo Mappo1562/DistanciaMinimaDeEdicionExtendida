@@ -72,56 +72,6 @@
       \field{title}{Algorithms}
       \field{year}{2019}
     \endentry
-    \entry{algorithm2e}{misc}{}{}
-      \name{author}{1}{}{%
-        {{hash=a5315ac91af386d0755259b7c836682f}{%
-           family={Fiorio},
-           familyi={F\bibinitperiod},
-           given={Christophe},
-           giveni={C\bibinitperiod}}}%
-      }
-      \strng{namehash}{a5315ac91af386d0755259b7c836682f}
-      \strng{fullhash}{a5315ac91af386d0755259b7c836682f}
-      \strng{fullhashraw}{a5315ac91af386d0755259b7c836682f}
-      \strng{bibnamehash}{a5315ac91af386d0755259b7c836682f}
-      \strng{authorbibnamehash}{a5315ac91af386d0755259b7c836682f}
-      \strng{authornamehash}{a5315ac91af386d0755259b7c836682f}
-      \strng{authorfullhash}{a5315ac91af386d0755259b7c836682f}
-      \strng{authorfullhashraw}{a5315ac91af386d0755259b7c836682f}
-      \field{extraname}{1}
-      \field{sortinit}{F}
-      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{http://ctan.math.illinois.edu/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf}}
-      \field{title}{Algorithm2e documentation}
-      \field{year}{2023}
-    \endentry
-    \entry{ctan-algorithm2e}{misc}{}{}
-      \name{author}{1}{}{%
-        {{hash=a5315ac91af386d0755259b7c836682f}{%
-           family={Fiorio},
-           familyi={F\bibinitperiod},
-           given={Christophe},
-           giveni={C\bibinitperiod}}}%
-      }
-      \strng{namehash}{a5315ac91af386d0755259b7c836682f}
-      \strng{fullhash}{a5315ac91af386d0755259b7c836682f}
-      \strng{fullhashraw}{a5315ac91af386d0755259b7c836682f}
-      \strng{bibnamehash}{a5315ac91af386d0755259b7c836682f}
-      \strng{authorbibnamehash}{a5315ac91af386d0755259b7c836682f}
-      \strng{authornamehash}{a5315ac91af386d0755259b7c836682f}
-      \strng{authorfullhash}{a5315ac91af386d0755259b7c836682f}
-      \strng{authorfullhashraw}{a5315ac91af386d0755259b7c836682f}
-      \field{extraname}{2}
-      \field{sortinit}{F}
-      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://ctan.org/pkg/algorithm2e}}
-      \field{title}{Algorithm2e on CTAN}
-      \field{year}{2023}
-    \endentry
     \entry{inbookFonseca}{inbook}{}{}
       \name{author}{2}{}{%
         {{hash=c41c292e845093ea0f1404581ba2075a}{%
@@ -215,28 +165,6 @@
       \field{month}{11}
       \field{title}{How to Write a Good Scientific Paper}
       \field{year}{2019}
-    \endentry
-    \entry{overleaf-algorithms}{misc}{}{}
-      \name{author}{1}{}{%
-        {{hash=80d685e90fa23d7996a66e45aa2d24ad}{%
-           family={Overleaf},
-           familyi={O\bibinitperiod}}}%
-      }
-      \strng{namehash}{80d685e90fa23d7996a66e45aa2d24ad}
-      \strng{fullhash}{80d685e90fa23d7996a66e45aa2d24ad}
-      \strng{fullhashraw}{80d685e90fa23d7996a66e45aa2d24ad}
-      \strng{bibnamehash}{80d685e90fa23d7996a66e45aa2d24ad}
-      \strng{authorbibnamehash}{80d685e90fa23d7996a66e45aa2d24ad}
-      \strng{authornamehash}{80d685e90fa23d7996a66e45aa2d24ad}
-      \strng{authorfullhash}{80d685e90fa23d7996a66e45aa2d24ad}
-      \strng{authorfullhashraw}{80d685e90fa23d7996a66e45aa2d24ad}
-      \field{sortinit}{O}
-      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://www.overleaf.com/learn/latex/Algorithms}}
-      \field{title}{Writing Algorithms in LaTeX}
-      \field{year}{2023}
     \endentry
     \entry{popper2005logic}{book}{}{}
       \name{author}{1}{}{%

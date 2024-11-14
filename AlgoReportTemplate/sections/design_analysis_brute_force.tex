@@ -1,5 +1,7 @@
 \epigraph{\textit{``Indeed, brute force is a perfectly good technique in many cases; the real question is, can we use brute force in such a way that we avoid the worst-case behavior?''}}{--- \citeauthor{taocv3}, \citeyear{taocv3} \cite{taocv3}}
 
+Para el enfoque de fuerza bruta tenemos dos variables globales (strings), una será la palabra y la otra el objetivo. Esta funcion recibe dos parametros, \textbf{i}, tamaño de la palabra a resolver - 1, y \textbf{j}, que es el tamaño del objetivo a resolver - 1, es importante recalcar que la palabra se va subdividiendo, generando asi todos los subproblemas posibles y resolviendolos con fuerza bruta.
+
 \begin{algorithm}[H]
     \SetKwProg{myproc}{Procedure}{}{}
     \SetKwFunction{DistanciaEdicionFB}{DistanciaEdicionFB}  
@@ -40,3 +42,32 @@
     \caption{Distancia Minima de Edición - Fuerza Bruta}
     \label{alg:mi_algoritmo_1}
 \end{algorithm}
+
+
+Ejemplo:\\
+considerando los siquientes costos:
+\begin{itemize}
+    \item $costo\_sub(a,b) = 3$ si $a \neq b$ y $0$ si $a = b$
+    \item $costo\_ins(b) = 1$ para cualquier caracter $b$
+    \item $costo\_del(a) = 1$ para cualquier caracter $a$
+    \item $costo\_trans(a,b) = 1$ para cualquier par de caracteres adyacentes $a, b$
+\end{itemize}
+y los strings:
+\begin{itemize}
+    \item palabra = 'zcoal'
+    \item objetivo = 'hola'
+\end{itemize}
+
+Con el proposito de resumir, solo se considerara el camino mas optimo para conseguir que la palabra se transforme en objetivo, comenzaremos llamando a la funcion con \textbf{i = 4} y \textbf{j = 3}.
+\begin{itemize}
+    \item DistanciaEdicionFB(4, 3)\\Se ejecutaran las llamadas recursivas de eliminar, insertar y sustituir, pero al momento de entrar en el condicional para transponer nos damos cuenta de que si se respeta, logrando transponer la palabra y llamandose recursivamente con \textbf{i = 2} y \textbf{j = 1}.
+    \item DistanciaEdicionFB(2, 1)\\Se comparan los dos caracteres, y notamos que son los mismos, por lo tanto solo se revisaran los siguientes caracteres \textbf{i = 1} y \textbf{j = 0}.
+    \item DistanciaEdicionFB(1, 0)\\En este momento en palabra tendremos c y en objetivo h, por lo cual se llama recursivamente a cada una de las funciones, pero no a transponer porque no cumple con las condiciones, aca se generan varios caminos pero se optara por que lo mejor sera eliminar, esto es porque ahora estamos buscando que 'zc' se transforme en 'h', con lo cual se podria simplemente sustituir c por h pero esto tiene un costo de 3, sale mas barato eliminar caracteres y luego insertarlos, lo cual tendria un costo de 2, por ende la llamada recursiva sera con \textbf{i = 0} y \textbf{j = 0}.
+    \item DistanciaEdicionFB(0, 0)\\siguiendo lo expuesto anteriormente tambien eliminaremos este caracter, por ende la llamada recursiva sera con \textbf{i = -1} y \textbf{j = 0}.
+    \item DistanciaEdicionFB(-1, 0)\\Ahora i pasa a ser negativo, esto indica que el subproblema se limita a solo agregar los caracteres que faltan (if de la linea 5 pseudocodigo), como solo nos queda esta opcion  la llamada recursiva sera con \textbf{i = -1} y \textbf{j = -1}.
+    \item DistanciaEdicionFB(-1, -1)\\Como los dos indices son negativos retorna 0, indicando que ha terminado.
+\end{itemize}
+Recopilando los costos efectuados tenemos:\\
+0 + 1 + 1 + 1\\
+que corresponden a\\
+terminar + insertar + eliminar + eliminar + transponer\\
