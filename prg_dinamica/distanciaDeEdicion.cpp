@@ -166,20 +166,20 @@ int distanciaLevenshtein(int i, int j) {
 
     if (palabra[i] == objetivo[j]) {
         tabla[i][j] = distanciaLevenshtein(i - 1, j - 1);
+        return tabla[i][j];
     } 
-    else {
 
-        int eliminar = distanciaLevenshtein(i - 1, j) + costo_del(palabra[i]);
-        int insertar = distanciaLevenshtein(i, j - 1) + costo_ins(objetivo[j]); 
-        int sustituir = distanciaLevenshtein( i - 1, j - 1) + costo_sub(palabra[i],objetivo[j]);
-        int transponer = INT_MAX;  
-        if (i > 1 && j > 1 && palabra[i] == objetivo[j - 1] && palabra[i - 1] == objetivo[j]) {
-            transponer = distanciaLevenshtein(i - 2, j - 2) + costo_trans(palabra[i],palabra[i-1]);
-        }
 
-        tabla[i][j] = min({eliminar, insertar, sustituir, transponer});
+    int eliminar = distanciaLevenshtein(i - 1, j) + costo_del(palabra[i]);
+    int insertar = distanciaLevenshtein(i, j - 1) + costo_ins(objetivo[j]); 
+    int sustituir = distanciaLevenshtein( i - 1, j - 1) + costo_sub(palabra[i],objetivo[j]);
+    int transponer = INT_MAX;  
+    if (i > 1 && j > 1 && palabra[i] == objetivo[j - 1] && palabra[i - 1] == objetivo[j]) {
+        transponer = distanciaLevenshtein(i - 2, j - 2) + costo_trans(palabra[i],palabra[i-1]);
     }
 
+    tabla[i][j] = min({eliminar, insertar, sustituir, transponer});
+    
     return tabla[i][j];
 }
 

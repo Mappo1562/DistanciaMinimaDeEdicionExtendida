@@ -13,6 +13,7 @@ no se podra resolver con transposiciones, ya que primero necesitamos eliminar 'c
 Se tomaron otros supuestos, los cuales son, si los dos caracteres a comparar son iguales, no se comparara con ninguna funcion (sustituir, insertar, eliminar o transponer), ya que como son iguales se considero que el costo sera 0.
 \\ 
 La entrada consiste en dos cadenas de caracteres, la primera sera la que buscaremos transformar a la segunda, estas dos las etiquetaremos, la primera sera simplemente \textbf{palabra}, y la segunda sera \textbf{objetivo}, estas dos serán guardadas como variables globales para las dos implementaciones, también los costos de cada funcion estaran designados de forma matricial/vectorial que especificara cada costo especifico dependiendo de cual/es caracteres esten implicados.
-
+\\
+Por Ultimo tenemos que la palabra en realidad no se vera modificada, puesto que no es necesario para calcular el costo minimo, solo es necesario saber que si se quiere eliminar un caracter el tamaño de la palabra se reducira 1, si queremos insertar un caracter, se asumira que se insertará el correcto, por ende revisaremos el siguiente caracter de objetivo con el actual de palabra, es decir se reducira 1 a objetivo, si se quiere sustituir, hay que reducir palabra y objetivo en 1 puesto que ya cumplimos con ese caracter, y por ultimo si transponemos (se cumplen las condiciones) se reduciran los dos en 2.
 
 

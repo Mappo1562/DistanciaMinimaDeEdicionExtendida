@@ -96,5 +96,5 @@ Con el proposito de resumir, solo se considerara el camino mas optimo para conse
     \item DistanciaEdicionFB(-1, 0)\\Ahora i pasa a ser negativo, esto indica que el subproblema se limita a solo agregar los caracteres que faltan (if de la linea 5 pseudocodigo), como solo nos queda esta opcion  la llamada recursiva sera con \textbf{i = -1} y \textbf{j = -1}.
     \item DistanciaEdicionFB(-1, -1)\\Como los dos indices son negativos retorna 0, indicando que ha terminado.
 \end{itemize}
-Recopilando los costos efectuados tenemos un total de 3, que corresponden a:\\
-terminar(0) + insertar(1) + eliminar(1) + eliminar(1) + transponer(0)
+Recopilando los costos efectuados tenemos un total de 4, que corresponden a:\\
+terminar(0) + insertar(1) + eliminar(1) + eliminar(1) + transponer(1)

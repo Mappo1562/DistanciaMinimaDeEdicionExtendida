@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber build/tarea_main"] 1731600047.85475 "build/tarea_main.bcf" "build/tarea_main.bbl" "build/tarea_main" 1731600158.45903 0
-  "build/tarea_main.bcf" 1731600158 109402 41efb3830ca7fa26b2a44a5c714d6a91 "pdflatex"
+["biber build/tarea_main"] 0 "build/tarea_main.bcf" "build/tarea_main.bbl" "build/tarea_main" 1731644836.23285 -1
+  "build/tarea_main.bcf" 1731644835 109402 41efb3830ca7fa26b2a44a5c714d6a91 "pdflatex"
   "references.bib" 1728941145 2316 085c5b26f2f30d734bd4df514e7a1ee9 ""
   (generated)
   "build/tarea_main.bbl"
   "build/tarea_main.blg"
   (rewritten before read)
-["pdflatex"] 1731600153.82771 "c:/Users/admin/OneDrive/archivos para estudiar/2024-2/algoco/tarea2-3/AlgoReportTemplate/tarea_main.tex" "build/tarea_main.pdf" "tarea_main" 1731600158.45964 0
+["pdflatex"] 1731644832.51889 "c:/Users/admin/OneDrive/archivos para estudiar/2024-2/algoco/tarea2-3/AlgoReportTemplate/tarea_main.tex" "build/tarea_main.pdf" "tarea_main" 1731644836.23398 0
   "C:/Users/admin/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1731377674 83440 ee9e72cf2d45f72521f0e99d78cfb9c5 ""
   "C:/Users/admin/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ectt1095.pk" 1731364356 21972 872cca167bfce86e4ca2769d2a010003 ""
   "C:/Users/admin/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1731364350 688 37338d6ab346c2f1466b29e195316aa4 ""
@@ -311,12 +311,12 @@
   "C:/Users/admin/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656240519 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "C:/Users/admin/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-abspage.sty" 1695383086 2269 4fe6fb3396214c91f164d45faf9bec45 ""
   "C:/Users/admin/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-base.sty" 1695383086 20785 f7d1133a287929598a897c93f8f4c44b ""
-  "author.tex" 1729128419 395 f0e15b3b20e34d13389e634678790f7f ""
-  "build/tarea_main.aux" 1731600158 4989 7ef05a62b25f99680be38769c9ba9528 "pdflatex"
+  "author.tex" 1731636137 393 19d8eee1b69410cb507e9203c6d99bc1 ""
+  "build/tarea_main.aux" 1731644835 4992 cde73e6c8eceab15130f055cd0af6795 "pdflatex"
   "build/tarea_main.bbl" 1731600050 8406 1df73b5bf00d71a206de221c613afb2b "biber build/tarea_main"
-  "build/tarea_main.out" 1731600158 914 f9f8b60de6284405ddc8af7482a432c4 "pdflatex"
-  "build/tarea_main.run.xml" 1731600158 2347 3a149f2168a09cc18164f684ae49c28d "pdflatex"
-  "build/tarea_main.toc" 1731600158 883 d6b3bdefae61bb16285975414aade64d "pdflatex"
+  "build/tarea_main.out" 1731644835 914 f9f8b60de6284405ddc8af7482a432c4 "pdflatex"
+  "build/tarea_main.run.xml" 1731644835 2347 3a149f2168a09cc18164f684ae49c28d "pdflatex"
+  "build/tarea_main.toc" 1731644835 886 24e642efda67bf65a1fcb46016b18375 "pdflatex"
   "c:/Users/admin/OneDrive/archivos para estudiar/2024-2/algoco/tarea2-3/AlgoReportTemplate/tarea_main.tex" 1728941145 1841 173144734cafaa4caf15a034e8937701 ""
   "condiciones.tex" 1728941145 3647 2b68a99949c9fbb84bc0bb6a89bdc1c0 ""
   "images/4_impurezas_cantmax_size10.png" 1728941145 94195 ecc5c6a7c21ac6b32302f16a387a8f26 ""
@@ -324,9 +324,9 @@
   "sections/abstract.tex" 1728941145 1018 47d43655f58d3cd00c796443f4f673b0 ""
   "sections/appendix1.tex" 1728941145 651 5bd1e43d77c49cbe70e610bf2cbf6026 ""
   "sections/conclusions.tex" 1728941145 1707 816cf3e1532fac1114793ded1f756f4e ""
-  "sections/design_analysis.tex" 1731598954 1800 4734c1b8bab45d8304f928fcf0c04731 ""
-  "sections/design_analysis_brute_force.tex" 1731600153 6105 4754869526e38c517e87fd691986b9f8 ""
-  "sections/design_analysis_dynamic_programming.tex" 1731600042 2388 5ee15c98ab8a496515a57db2a9ca0ae0 ""
+  "sections/design_analysis.tex" 1731644637 2415 48419e2e3102d99bd544ccc761d6e9d3 ""
+  "sections/design_analysis_brute_force.tex" 1731638641 6105 def3eea3182848100627344704e08110 ""
+  "sections/design_analysis_dynamic_programming.tex" 1731644831 6114 9e26c7575f3ede6e653038dfa3132ba6 ""
   "sections/experiment_dataset.tex" 1728941145 1400 0c198ec592f167298760db80765097c7 ""
   "sections/experiment_intro.tex" 1728941145 1149 85f81d687df91ddcc0b4420993f9d3d5 ""
   "sections/experiment_results.tex" 1728941145 3038 383170a4f86b6ebd5932fa244371ca4c ""
