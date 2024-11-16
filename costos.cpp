@@ -7,34 +7,86 @@
 #include <climits>
 using namespace std;
 
-int costo_sub(char a, char b){
-    int costo;
-    int auxa = static_cast<int>(a);
-    int auxb = static_cast<int>(b);
-    costo = auxa + 2 * auxb;
-    if (a==b)
-        return 0;
-    return 2;
+int N=26;
+vector<int> insertar(N,0), eliminar(N,0);
+vector<vector<int>> sustituir(N, vector<int>(N, 0)), transposicion(N, vector<int>(N, 0));
+
+
+int GET_COSTOS(){
+    int n;
+    ifstream datai("costos/cost_insert.txt");
+    if (!datai){
+        cout<<"No se pudo abrir el archivo cost_insert.txt\n";
+        return 1;
+    }
+    for (int i=0;i<N;++i){
+        datai>>n;
+        insertar[i] = n;
+    }
+    datai.close();
+
+
+    ifstream datae("costos/cost_delete.txt");
+    if (!datae){
+        cout<<"No se pudo abrir el archivo cost_delete.txt\n";
+        return 1;
+    }
+    for (int i=0;i<N;++i){
+        datae>>n;
+        eliminar[i] = n;
+    }
+    datae.close();
+
+
+    ifstream datar("costos/cost_replace.txt");
+    if (!datar){
+        cout<<"No se pudo abrir el archivo cost_replace.txt\n";
+        return 1;
+    }
+    for (int i=0;i<N;++i){
+        for (int j=0;j<N;++j){
+            datae>>n;
+            sustituir[i][j] = n;
+        }
+    }
+    datar.close();
+
+
+    ifstream datat("costos/cost_transpose.txt");
+    if (!datat){
+        cout<<"No se pudo abrir el archivo cost_transpose.txt\n";
+        return 1;
+    }
+    for (int i=0;i<N;++i){
+        for (int j=0;j<N;++j){
+            datae>>n;
+            transposicion[i][j] = n;
+        }
+    }
+    datat.close();
+    return 0;
 }
+
+
+
+int costo_sub(char a, char b){
+    return sustituir[a - 'a'][b - 'a'];
+}
+
+
 
 int costo_ins(char a){
-    int costo;
-    int aux = static_cast<int>(a);
-    costo = 2 * aux;
-    return 1;
+    return insertar[a - 'a'];
 }
+
+
 
 int costo_del(char a){
-    int costo;
-    int aux = static_cast<int>(a);
-    costo = aux/2;
-    return 1;
+    return eliminar[a - 'a'];
 }
 
+
+
 int costo_trans(char a, char b){
-    int costo;
-    int auxa = static_cast<int>(a);
-    int auxb = static_cast<int>(b);
-    costo = auxa/2 + auxb/2;
-    return 1;
+    return transposicion[a - 'a'][b - 'a'];
 }

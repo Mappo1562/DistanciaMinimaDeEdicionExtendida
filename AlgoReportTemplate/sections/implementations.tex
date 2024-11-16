@@ -1,8 +1,17 @@
-\begin{mdframed}
-    \textbf{La extensión máxima para esta sección es de 1 página.}
-\end{mdframed}
+Ahora se especificara mas acerca de las implementaciones de estos programas, estas se encuentran en el siguiente \href{https://github.com/Mappo1562/DistanciaMinimaDeEdicionExtendida}{repositorio}, en este se encuentra la información de todo lo relacionado con el informe.\\
+La implementación tiene 4 archivos de gran importancia, estos son:
+\begin{itemize}
+    \item \texttt{costos.cpp:}\\ En este subprograma se tendran las implementaciones de los costos de las funciones.
+    \item \texttt{entrada.txt:}\\ Aqui se ingresara en la primera linea la palabra, y en la segunda el objetivo para resolver el problema.
+    \item \texttt{FuerzaBruta/distanciaDeEdicion.cpp}\\ En este archivo se guarda la implementacion con fuerza bruta del problema, esta posee dos funciones, las cuales son distanciaEdicion(i,j), y set(), la primera resuelve el problema con fuerza bruta revisando todos los casos posibles, la segunda lee los strings del archivo entrada.txt.
+    \item \texttt{prg\_dinamica/distanciaDeEdicion.cpp}\\ En este archivo se guarda la implementacion con programacion dinamica del problema, esta posee dos funciones, las cuales son distanciaEdicion(i,j), y set(), la primera resuelve el problema con programacion dinamica revisando todos los casos posibles pero sin recalcularlos, y la segunda lee los strings del archivo entrada.txt y a estas se les agrega un '-' al inicio, esto es solo para facilitar el acceso a la matriz, no perjudica a la entrada.
+\end{itemize}
 
-Aquí deben explicar la estructura de sus programas haciendo referencias a los archivos y funciones de su entrega. No adjunte código en esta sección.
-\begin{mdframed}
-    Si se utiliza algún código, idea, o contenido extraído de otra fuente, este \textbf{debe} ser citado en el lugar exacto donde se utilice, en lugar de mencionarlo al final del informe.
-\end{mdframed}
+También se necesitan 4 archivos txt para los costos, estos tendran un tamaño donde n = 26 (alfabeto inglés, solo con letras minusculas) estos son; cost\_insert.txt, cost\_delete.txt, cost\_replace.txt, cost\_transpose.txt, estos estaran guardados en la carpeta costos, y cada uno guardara n (insert, delete) o $n*n$ (replace, transpose) numeros enteros, de igual manera en el repositorio hay un generador de costos aleatorio.
+
+
+Para correr los programas, solo hay que modificar entrada.txt, ingresando la palabra y el objetivo deseados, luego compilar con:\\
+g++ -o out fuerzabruta/distanciadeedicion.cpp -Wall\\
+si se quiere por fuerza bruta, o\\
+g++ -o out prg\_dinamica/distanciadeedicion.cpp -Wall\\
+si se quiere por programacion dinamica

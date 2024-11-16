@@ -16,7 +16,7 @@ int c=0;
 
 
 int set(){
-    ifstream data("dataset.txt");
+    ifstream data("entrada.txt");
     if (!data){
         cout<<"No se pudo abrir el archivo.\n";
         return 1;
@@ -35,26 +35,10 @@ int distanciaEdicion(int i, int j) {
         return 0;
     // palabra vacía
     if (i < 0) {
-        /*
-        int ret = 0;
-        while (j >= 0) {
-            ret += costo_ins(objetivo[j]);  // insertar caracteres restantes de objetivo
-            j--;
-        }
-        return ret;
-        */
         return costo_ins(objetivo[j]) + distanciaEdicion(i,j-1);
     }
     // objetivo vacío
     if (j < 0) {
-        /*
-        int ret = 0;
-        while (i >= 0) {
-            ret += costo_del(palabra[i]);  // eliminar caracteres restantes de palabra
-            i--;
-        }
-        return ret;
-        */
         return costo_del(palabra[i]) + distanciaEdicion(i-1,j);
     }
     // caracteres iguales
@@ -80,8 +64,9 @@ int main(){
     if (set()){
         return 1;
     }
-
-
+    if (GET_COSTOS()){
+        return 1;
+    }
     cout<<palabra<<"\n"<<objetivo<<"\n";
     cout<<distanciaEdicion(palabra.size()-1,objetivo.size()-1)<<"\n";
     return 0;
