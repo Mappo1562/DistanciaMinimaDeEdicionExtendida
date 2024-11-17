@@ -5,6 +5,8 @@
 #include <vector>
 #include <algorithm>
 #include <climits>
+#include <chrono>
+#include <sstream>
 using namespace std;
 
 int N=26;
@@ -45,7 +47,7 @@ int GET_COSTOS(){
     }
     for (int i=0;i<N;++i){
         for (int j=0;j<N;++j){
-            datae>>n;
+            datar>>n;
             sustituir[i][j] = n;
         }
     }
@@ -59,7 +61,7 @@ int GET_COSTOS(){
     }
     for (int i=0;i<N;++i){
         for (int j=0;j<N;++j){
-            datae>>n;
+            datat>>n;
             transposicion[i][j] = n;
         }
     }

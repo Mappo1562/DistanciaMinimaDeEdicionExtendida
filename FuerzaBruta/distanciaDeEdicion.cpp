@@ -15,6 +15,22 @@ string palabra, objetivo;
 int c=0;
 
 
+long getMemoryUsage() {
+    ifstream file("/proc/self/status");
+    string line;
+    while (getline(file, line)) {
+        if (line.rfind("VmRSS:", 0) == 0) {
+            istringstream iss(line);
+            string label;
+            long memory;
+            iss >> label >> memory;
+            return memory; 
+        }
+    }
+    return 0;
+}
+
+
 int set(){
     ifstream data("entrada.txt");
     if (!data){
@@ -31,6 +47,7 @@ int set(){
 
 
 int distanciaEdicion(int i, int j) {
+    // condicion de termino
     if (i<0 && j<0)
         return 0;
     // palabra vacía
@@ -56,6 +73,7 @@ int distanciaEdicion(int i, int j) {
         transponer = distanciaEdicion(i - 2, j - 2) + costo_trans(palabra[i], palabra[i - 1]);
     }
 
+
     return min({eliminar, insertar, sustituir, transponer});
 }
 
@@ -67,7 +85,20 @@ int main(){
     if (GET_COSTOS()){
         return 1;
     }
-    cout<<palabra<<"\n"<<objetivo<<"\n";
-    cout<<distanciaEdicion(palabra.size()-1,objetivo.size()-1)<<"\n";
+    cout<<"#########################################################################\n";
+    cout<<"\n    Distancia minima de edicion extendida con enfoque de fuerza bruta \n\n";
+    cout<<" palabra: "<<palabra<<"\n objetivo: "<<objetivo<<"\n\n";
+
+    // calculo distancia
+    auto inicio = chrono::high_resolution_clock::now();
+    int distancia = distanciaEdicion(palabra.size() - 1, objetivo.size() - 1);
+    auto fin = chrono::high_resolution_clock::now();
+
+    chrono::duration<double> duracion = fin - inicio;
+
+    cout << " La distancia de edicion entre '" << palabra << "' y '" << objetivo << "' es: " << distancia << "\n";
+    cout << " Tiempo de ejecución: " << duracion.count() << " segundos.\n";
+    cout << " Uso de memoria: " << getMemoryUsage() << " KB.\n";
+    cout<<"\n#########################################################################\n";
     return 0;
 }

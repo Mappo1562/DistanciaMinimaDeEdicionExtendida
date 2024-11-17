@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.11)  16 NOV 2024 00:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.11)  17 NOV 2024 20:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1606,31 +1606,61 @@ Overfull \hbox (28.53926pt too wide) in paragraph at lines 10--11
 
 [9] (sections/experiment_intro.tex) (sections/experiment_dataset.tex
 
-Package mdframed Warning: You got a bad break
-(mdframed)                because the last box will be empty
-(mdframed)                you have to change it manually
-(mdframed)                by changing the text, the space
-(mdframed)                or something else on input line 8.
+[10]
+Overfull \hbox (6.93863pt too wide) in paragraph at lines 7--8
+[]\T1/futs/m/n/10.95 este en-fo-que es muy pa-re-ci-do al an-te-rior, sin em-bar-go se uti-li-za un string ob-je-ti-vo que es .[]bcdefghij",
+ []
+
+) (sections/experiment_results.tex
+<images/especifico.png, id=163, 490.83376pt x 395.22656pt>
+File: images/especifico.png Graphic file (type png)
+<use images/especifico.png>
+Package pdftex.def Info: images/especifico.png  used on input line 7.
+(pdftex.def)             Requested size: 284.53398pt x 227.62137pt.
+
+
+[11 <./images/especifico.png>]
+<images/palabras-generadasT.png, id=173, 419.31656pt x 318.43968pt>
+File: images/palabras-generadasT.png Graphic file (type png)
+<use images/palabras-generadasT.png>
+Package pdftex.def Info: images/palabras-generadasT.png  used on input line 17.
+(pdftex.def)             Requested size: 236.01561pt x 179.23363pt.
+<images/palabras-generadasE.png, id=174, 416.30531pt x 313.9228pt>
+File: images/palabras-generadasE.png Graphic file (type png)
+<use images/palabras-generadasE.png>
+Package pdftex.def Info: images/palabras-generadasE.png  used on input line 20.
+(pdftex.def)             Requested size: 236.01561pt x 177.97504pt.
+<images/palabras-credientes-pd.png, id=175, 539.76656pt x 325.215pt>
+File: images/palabras-credientes-pd.png Graphic file (type png)
+<use images/palabras-credientes-pd.png>
+Package pdftex.def Info: images/palabras-credientes-pd.png  used on input line 30.
+(pdftex.def)             Requested size: 236.01561pt x 142.20181pt.
+<images/palabras-credientes-fb.png, id=176, 541.27219pt x 325.215pt>
+File: images/palabras-credientes-fb.png Graphic file (type png)
+<use images/palabras-credientes-fb.png>
+Package pdftex.def Info: images/palabras-credientes-fb.png  used on input line 33.
+(pdftex.def)             Requested size: 236.01561pt x 141.80482pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--41
+
+ []
 
 
 
-[10]) (sections/experiment_results.tex (tikz/plot1.tex)
+[12 <./images/palabras-generadasT.png> <./images/palabras-generadasE.png> <./images/palabras-credientes-pd.png> <./images/palabras-credientes-fb.png>]
+<images/po-credientes-pd.png, id=183, 537.50812pt x 324.46219pt>
+File: images/po-credientes-pd.png Graphic file (type png)
+<use images/po-credientes-pd.png>
+Package pdftex.def Info: images/po-credientes-pd.png  used on input line 48.
+(pdftex.def)             Requested size: 236.01561pt x 142.46674pt.
+<images/po-credientes-fb.png, id=184, 540.51938pt x 322.95656pt>
+File: images/po-credientes-fb.png Graphic file (type png)
+<use images/po-credientes-fb.png>
+Package pdftex.def Info: images/po-credientes-fb.png  used on input line 51.
+(pdftex.def)             Requested size: 236.01561pt x 141.01718pt.
+)
 
-[11] (tikz/plot2.tex) (tikz/plot3.tex)
-<images/4_impurezas_cantmax_size10.png, id=168, 1204.5pt x 1204.5pt>
-File: images/4_impurezas_cantmax_size10.png Graphic file (type png)
-<use images/4_impurezas_cantmax_size10.png>
-Package pdftex.def Info: images/4_impurezas_cantmax_size10.png  used on input line 37.
-(pdftex.def)             Requested size: 236.01561pt x 236.00687pt.
-File: images/4_impurezas_cantmax_size10.png Graphic file (type png)
-<use images/4_impurezas_cantmax_size10.png>
-Package pdftex.def Info: images/4_impurezas_cantmax_size10.png  used on input line 40.
-(pdftex.def)             Requested size: 236.01561pt x 236.00687pt.
-
-
-[12])
-
-[13 <./images/4_impurezas_cantmax_size10.png>] (sections/conclusions.tex)
+[13 <./images/po-credientes-pd.png> <./images/po-credientes-fb.png>] (sections/conclusions.tex)
 
 [14] (condiciones.tex
 Overfull \hbox (5.05753pt too wide) in paragraph at lines 33--34
@@ -1663,17 +1693,17 @@ Package logreq Info: Writing requests to 'tarea_main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 56206 strings out of 473681
- 1286873 string characters out of 5719194
- 2247834 words of memory out of 5000000
- 78296 multiletter control sequences out of 15000+600000
+ 55655 strings out of 473681
+ 1271902 string characters out of 5719194
+ 2227900 words of memory out of 5000000
+ 77750 multiletter control sequences out of 15000+600000
  709037 words of font info for 184 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 107i,21n,110p,7264b,2495s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 107i,15n,110p,7264b,2191s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\admin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/fourier/fourier-mlit.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/public/fourier/fourier-ms.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/adobe/utopia/putb8a.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/adobe/utopia/putbi8a.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/adobe/utopia/putr8a.pfb><C:/Users/admin/AppData/Local/Programs/MiKTeX/fonts/type1/adobe/utopia/putri8a.pfb>
-Output written on "c:\Users\admin\OneDrive\archivos para estudiar\2024-2\algoco\tarea2-3\AlgoReportTemplate\build\tarea_main.pdf" (16 pages, 223871 bytes).
+Output written on "c:\Users\admin\OneDrive\archivos para estudiar\2024-2\algoco\tarea2-3\AlgoReportTemplate\build\tarea_main.pdf" (16 pages, 237929 bytes).
 PDF statistics:
- 304 PDF objects out of 1000 (max. 8388607)
- 93 named destinations out of 1000 (max. 500000)
- 74 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 306 PDF objects out of 1000 (max. 8388607)
+ 99 named destinations out of 1000 (max. 500000)
+ 104 words of extra memory for PDF output out of 10000 (max. 10000000)
 
