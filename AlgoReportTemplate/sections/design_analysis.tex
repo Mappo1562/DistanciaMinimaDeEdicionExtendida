@@ -1,19 +1,19 @@
-Para los dos paradigmas de programación utilizados, se utilizo de estrategia la idea de calcular todos los costos posibles recursivamente, para finalmente elegir el minimo, es decir, se tendra una llamada recursiva cuando la funcion sea sustituir, insertar, eliminar o transponer, donde cada una obtendra su respectivo coste, eligiendo asi el minimo entre estos.\\
-Las diferencia con el problema de minima distancia entre cadenas es que ahora se podra ejecutar con distintos costos, y tambien se le agrega la funcion de transponer, donde a esta solo se le considero intercambiar con el caracter que tiene adelante solo si los dos caracteres resultantes quedan en la posicion que deberian segun la cadena 2, \\por ejemplo:
+Para los dos paradigmas de programación utilizados, se utilizo de estrategia la idea de calcular todos los costos posibles de forma recursiva, para finalmente elegir el mínimo, es decir, se tendrá una llamada recursiva cuando la función sea sustituir, insertar, eliminar o transponer, donde cada una obtendrá su respectivo coste, eligiendo asi el mínimo entre estos.\\
+Las diferencia con el problema de mínima distancia entre cadenas es que ahora se podrá ejecutar con distintos costos, y también se le agrega la función de transponer, donde a esta solo se le considero intercambiar con el carácter que tiene adelante solo si los dos caracteres resultantes quedan en la posición que deberían según la cadena 2, \\por ejemplo:
 
 palabra: ab
 
 objetivo: ba\\ 
-en este casi si se podra ejecutar una transposición, \\sin embargo si se tiene algo del tipo:
+en este casi si se podrá ejecutar una transposición, \\sin embargo si se tiene algo del tipo:
 
 palabra: acb
 
 objetivo: ba\\ 
-no se podra resolver con transposiciones, ya que primero necesitamos eliminar 'c' para que luego sea factible la transposición, sin embargo esto no estara soportado por los algoritmos\\
-Se tomaron otros supuestos, los cuales son, si los dos caracteres a comparar son iguales, no se comparara con ninguna funcion (sustituir, insertar, eliminar o transponer), ya que como son iguales se considero que el costo sera 0.
+no se podrá resolver con transposiciones, ya que primero necesitamos eliminar 'c' para que luego sea factible la transposición, sin embargo esto no estará soportado por los algoritmos\\
+Se tomaron otros supuestos, los cuales son, si los dos caracteres a comparar son iguales, no se comparara con ninguna función (sustituir, insertar, eliminar o transponer), ya que como son iguales se considero que el costo sera 0.
 \\ 
-La entrada consiste en dos cadenas de caracteres, la primera sera la que buscaremos transformar a la segunda, estas dos las etiquetaremos, la primera sera simplemente \textbf{palabra}, y la segunda sera \textbf{objetivo}, estas dos serán guardadas como variables globales para las dos implementaciones, también los costos de cada funcion estaran designados de forma matricial/vectorial que especificara cada costo especifico dependiendo de cual/es caracteres esten implicados.
+La entrada consiste en dos cadenas de caracteres, la primera sera la que buscaremos transformar a la segunda, estas dos las etiquetaremos, la primera sera simplemente \textbf{palabra}, y la segunda sera \textbf{objetivo}, estas dos serán guardadas como variables globales para las dos implementaciones, también los costos de cada función estarán designados de forma matricial/vectorial que especificara cada costo especifico dependiendo de cual/es caracteres estén implicados.
 \\
-Por Ultimo tenemos que la palabra en realidad no se vera modificada, puesto que no es necesario para calcular el costo minimo, solo es necesario saber que si se quiere eliminar un caracter el tamaño de la palabra se reducira 1, si queremos insertar un caracter, se asumira que se insertará el correcto, por ende revisaremos el siguiente caracter de objetivo con el actual de palabra, es decir se reducira 1 a objetivo, si se quiere sustituir, hay que reducir palabra y objetivo en 1 puesto que ya cumplimos con ese caracter, y por ultimo si transponemos (se cumplen las condiciones) se reduciran los dos en 2.
+Por Ultimo tenemos que la palabra en realidad no se vera modificada, puesto que no es necesario para calcular el costo mínimo, solo es necesario saber que si se quiere eliminar un carácter el tamaño de la palabra se reducirá 1, si queremos insertar un carácter, se asumirá que se insertará el correcto, por ende revisaremos el siguiente carácter de objetivo con el actual de palabra, es decir se reducirá 1 a objetivo, si se quiere sustituir, hay que reducir palabra y objetivo en 1 puesto que ya cumplimos con ese carácter, y por ultimo si transponemos (se cumplen las condiciones) se reducirán los dos en 2.
 
 

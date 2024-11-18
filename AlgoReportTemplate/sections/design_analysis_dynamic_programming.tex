@@ -1,8 +1,6 @@
 \epigraph{\textit{Dynamic programming is not about filling in tables. It's about smart recursion!}}{\citeauthor{algorithms_erickson}, \citeyear{algorithms_erickson} \cite{algorithms_erickson}}
-
-
-Para este enfoque se utilizo una tabla que indica los costos de cada subproblema, haciendo que el programa realice menos llamadas recursivas, logrando un mejor rendimiento.\\
-En esta implementacion a palabra y a objetivo se les agrega un caracter al inicio, el cual es '-', esto es para simplificar el acceso a la matriz de subproblemas, tambien tendremos la matriz que estara implementada con un vector de 2 dimensiones, esta estara inicializada con valores -1 en todos los puntos menos en el (0,0), en este punto valdra 0, que es el caso base, la solucion al problema trivial de palabra='' y objetivo = ''.\\
+Para este enfoque se utilizó una tabla que indica los costos de cada sub-problema, haciendo que el programa realice menos llamadas recursivas, logrando un mejor rendimiento.\\
+En esta implementación a palabra y a objetivo se les agrega un carácter al inicio, el cual es '-', esto es para simplificar el acceso a la matriz de sub-problemas, también tendremos la matriz que estará implementada con un vector de 2 dimensiones, esta estará inicializada con valores -1 en todos los puntos menos en el (0,0), en este punto valdrá 0, que es el caso base, la solución al problema trivial de palabra='' y objetivo = ''.\\
 
 \begin{algorithm}[H]
     \SetKwProg{myproc}{Procedure}{}{}
@@ -66,23 +64,23 @@ En esta implementacion a palabra y a objetivo se les agrega un caracter al inici
 \end{algorithm}
 
 
-El algoritmo con el enfoque de programacion dinámica, especificamente utilizando el enfoque top down, es muy similar a fuerza bruta, de hecho de igual forma se calculan todos los caminos posibles, pero en este con este enfoque no se volvera a recalcular, sino que los resultados parciales (resultados del subproblema) se iran guardando, ahorrando asi llamadas recursivas y mejorando el rendimiento.\\
-Este algoritmo divide el problema en varios subproblemas, dependiendo de la ultima funcion que se el ejecuto a la palabra, la manera mas facil de verlo es que se fija el ultimo caracter y se decide hacer una operacion, en donde si se agrega, o se sustituye un caracter, siempre se considerara que es el que beneficia al problema, por ende tendremos una fraccion del problema resuelto, faltaria el resto, ese seria el primer subproblema.\\
-Para la complejidad temporal tenemos que lo que buscaremos realizar es llenar la matriz con los subproblemas, esta tendra un tamaño de $n*m$ donde n es el tamaño de palabra y m es el tamaño de objetivo, en conclusión su complejidad será:
+El algoritmo con el enfoque de programación dinámica, específicamente utilizando el enfoque top down, es muy similar a fuerza bruta, de hecho de igual forma se calculan todos los caminos posibles, pero en este con este enfoque no se volverá a re-calcular, sino que los resultados parciales (resultados del sub-problema) se irán guardando, ahorrando asi llamadas recursivas y mejorando el rendimiento.\\
+Este algoritmo divide el problema en varios sub-problemas, dependiendo de la ultima función que se el ejecuto a la palabra, la manera mas fácil de verlo es que se fija el ultimo carácter y se decide hacer una operación, en donde si se agrega, o se sustituye un carácter, siempre se considerara que es el que beneficia al problema, por ende tendremos una fracción del problema resuelto, faltaría el resto, ese seria el primer sub-problema.\\
+Para la complejidad temporal tenemos que lo que buscaremos realizar es llenar la matriz con los sub-problemas, esta tendrá un tamaño de $n*m$ donde n es el tamaño de palabra y m es el tamaño de objetivo, en conclusión su complejidad será:
 \[
     T(n,m) \in O(n*m)
 \]
-Por otro lado para la complejidad espacial tendremos que de espacio extra (ignorando espacio utilizado para los costos) tendremos la matriz de subproblemas, la cual consta de n filas y m columnas, por ende el espacio estara definido por:
+Por otro lado para la complejidad espacial tendremos que de espacio extra (ignorando espacio utilizado para los costos) tendremos la matriz de sub-problemas, la cual consta de n filas y m columnas, por ende el espacio estará definido por:
 \[
     E(n,m) \in  O(n*m)
 \]
 \\
-Ejemplo de ejecucion:
-considerando los siquientes costos:
+Ejemplo de ejecución:
+considerando los siguientes costos:
 \begin{itemize}
     \item $costo\_sub(a,b) = 3$ si $a \neq b$ y $0$ si $a = b$
-    \item $costo\_ins(b) = 1$ para cualquier caracter $b$
-    \item $costo\_del(a) = 1$ para cualquier caracter $a$
+    \item $costo\_ins(b) = 1$ para cualquier carácter $b$
+    \item $costo\_del(a) = 1$ para cualquier carácter $a$
     \item $costo\_trans(a,b) = 1$ para cualquier par de caracteres adyacentes $a, b$\\
 \end{itemize} 
 y los strings:
@@ -91,7 +89,7 @@ y los strings:
     \item objetivo = 'bad'\\
 \end{itemize} 
 
-como el tamaño de palabra y de objetivo es 3, sin embargo le agregaremos el '-' antes, que como ya fue explicado anteriormente es para acceder de manera mas sencilla a la matriz, sabiendo esto los dos strings quedaran de largo 4, por ende comenzaremos llamando a la funcion con \textbf{i = 3} y \textbf{j = 3}.\\ 
+como el tamaño de palabra y de objetivo es 3, sin embargo le agregaremos el '-' antes, que como ya fue explicado anteriormente es para acceder de manera mas sencilla a la matriz, sabiendo esto los dos strings quedaran de largo 4, por ende comenzaremos llamando a la función con \textbf{i = 3} y \textbf{j = 3}.\\ 
 Para este ejemplo el algoritmo se comportara igual que el de fuerza bruta e ira llenando la matriz de a poco, en este problema es visible que la menor distancia es eliminar 'c', agregar 'd', transponer 'ab', con un costo total de 3, el algoritmo generara la siguiente matriz:
 
 \begin{equation}
@@ -103,4 +101,4 @@ Para este ejemplo el algoritmo se comportara igual que el de fuerza bruta e ira 
 \end{matrix}
 \end{equation}
 
-de la cual podemos apreciar que el algoritmo efectivamente revisa todos los i y los j posibles, y que el resultado será 3 (DistanciaEdicionPD(2,3) + 1), como ya sabemos el resultado, podemos seguir el camino de regreso, como la primera operación fue 'eliminar' tenemos que ir a (2, 3), que guarda el valor 2, esto nos indica que DistanciaEdicionPD(2,3) = 2, luego la siguiente operacion fue 'agregar' en consecuencia visitaremos la matriz en (2,2), que es 1, entonces DistanciaEdicionPD(2,2) = 1, por ultimo la operacion que viene sera transponer, la cual tiene un costo de 1, que viene de DistanciaEdicionPD(0,0) + 1, pero como i=0 y j=0, el resultado es 0
+de la cual podemos apreciar que el algoritmo efectivamente revisa todos los i y los j posibles, y que el resultado será 3 (DistanciaEdicionPD(2,3) + 1), como ya sabemos el resultado, podemos seguir el camino de regreso, como la primera operación fue 'eliminar' tenemos que ir a (2, 3), que guarda el valor 2, esto nos indica que DistanciaEdicionPD(2,3) = 2, luego la siguiente operación fue 'agregar' en consecuencia visitaremos la matriz en (2,2), que es 1, entonces DistanciaEdicionPD(2,2) = 1, por ultimo la operación que viene sera transponer, la cual tiene un costo de 1, que viene de DistanciaEdicionPD(0,0) + 1, pero como i=0 y j=0, el resultado es 0

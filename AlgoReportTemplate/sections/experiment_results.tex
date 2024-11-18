@@ -35,12 +35,12 @@ Ahora para los siguientes gráficos se combinaran los enfoques para comparar de 
     \label{fig:Pcreciente}
 \end{figure} 
 
-Estos gráficos se separaron para que sea mas facil ver como crece programacion dinamica, que antes parecia ser constante, aqui se revela que no lo es, se comporta de forma mas lineal, aunque el grafico no es muy exacto porque las palabras para ir aumentando tienen que cambiar.\\
+Estos gráficos se separaron para que sea mas fácil ver como crece programación dinámica, que antes parecía ser constante, aquí se revela que no lo es, se comporta de forma mas lineal, aunque el gráfico no es muy exacto porque las palabras para ir aumentando tienen que cambiar.\\
 también se observa que si los caracteres son poco variados, el programa funcionara mejor con cualquiera de los enfoques, de hecho para fuerza bruta, si los caracteres son variados se comporta mucho mas exponencial que si no lo son, esto se debe a que es mas probable que en algún momento se encuentre algún carácter igual,  reduciendo las llamadas recursivas, y por tanto reduciendo los tiempos.\\
 Por otro lado se ve la gran diferencia que hay entre fuerza bruta y programación dinámica, esta esta a una escala mucho menor, sus mayor valor no alcanzan a ser 0.001 segundos, mientras que con fuerza bruta, para palabras de 15 caracteres ya tarda 2 segundos.\\
 
 
-Los siguientes gráficos muestran como se comportan los tiempos cuando palabra y objetivo tienen el mismo largo y este va variando, aqui ya se pierde mucho la exactitud porque palabra y objetivo tienen que ir cambiando para aumentar su tamaño, lo cual hace que los problemas sean distintos.
+Los siguientes gráficos muestran como se comportan los tiempos cuando palabra y objetivo tienen el mismo largo y este va variando, aquí ya se pierde mucho la exactitud porque palabra y objetivo tienen que ir cambiando para aumentar su tamaño, lo cual hace que los problemas sean distintos.
 
 \begin{figure}[H]
     \centering
@@ -53,3 +53,16 @@ Los siguientes gráficos muestran como se comportan los tiempos cuando palabra y
     \label{fig:POcreciente}
 \end{figure} 
 
+de estos se vuelve a observar que los strings con caracteres mas variados tardan mas, de hecho para fuerza bruta con 20 caracteres variados no termino en 3 horas, lo cual hace que fuerza bruta sea un algoritmo muy deficiente, en comparación con programación dinámica.\\
+También se nota la reducción de exactitud, por ejemplo, en el punto donde hay 13 caracteres en programación dinámica los dos puntos (con menos y mas varianza) se alejan demasiado entre si en comparación con las otras medidas, de igual manera todos los puntos de mayor varianza tardaron mas que los de menor varianza.
+
+Por ultimo tenemos un gráfico para comparar los espacios utilizados por los distintos algoritmos y enfoques:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=12cm, height=7cm]{images/espacio.png}
+    \caption{Gráfico para comparar espacios utilizados}
+    \label{fig:espacio}
+\end{figure}
+
+De este gráfico se observa que en general programación dinámica utiliza 8 KB mas que fuerza bruta, además parecieran ser constantes, sin embargo teóricamente esto no es así, pero esto pasa por como el sistema operativo reparte los espacios en la memoria RAM para la ejecución del programa, logrando que no avance de manera continua sino de manera discreta por bloques, como las pruebas fueron realizadas con strings relativamente pequeños esto no se puede visualizar.

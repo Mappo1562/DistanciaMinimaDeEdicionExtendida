@@ -1,6 +1,6 @@
 \epigraph{\textit{``Indeed, brute force is a perfectly good technique in many cases; the real question is, can we use brute force in such a way that we avoid the worst-case behavior?''}}{--- \citeauthor{taocv3}, \citeyear{taocv3} \cite{taocv3}}
 
-Para el enfoque de fuerza bruta tenemos dos variables globales (strings), una será la palabra y la otra el objetivo. Esta funcion recibe dos parametros, \textbf{i}, tamaño de la palabra a resolver - 1, y \textbf{j}, que es el tamaño del objetivo a resolver - 1, es importante recalcar que la palabra se va subdividiendo, generando asi todos los subproblemas posibles y resolviendolos con fuerza bruta.
+Para el enfoque de fuerza bruta tenemos dos variables globales (strings), una será la palabra y la otra el objetivo. Esta función recibe dos parámetros, \textbf{i}, tamaño de la palabra a resolver - 1, y \textbf{j}, que es el tamaño del objetivo a resolver - 1, es importante recalcar que la palabra se va subdividiendo, generando asi todos los sub-problemas posibles y resolviéndolos con fuerza bruta.
 
 \begin{algorithm}[H]
     \SetKwProg{myproc}{Procedure}{}{}
@@ -52,11 +52,11 @@ Analizando este algoritmo tenemos que en el peor caso se generan 4 llamadas recu
     \item transponer: DistanciaEdicionFB(i-2, j-2)
 \end{enumerate}
 
-por ende podemos generar una relacion de recurrencia que se aproxima al problema , esta es:
+por ende podemos generar una relación de recurrencia que se aproxima al problema , esta es:
 \[
     T(i,j) = 4*T(i-1,j-1)
 \]
-ademas tenemos que T(-1,-1) = 1, esto ya que en este caso solo retornara 0, dejando que el problema trivial de dos palabras vacias $\in $ O(1), ahora si tenemos una palabra de tamaño n, y un objetivo de tamaño m, tendremos que T(n,m) ira aumentando en potencia de 4, es decir:
+ademas tenemos que T(-1,-1) = 1, esto ya que en este caso solo retornara 0, dejando que el problema trivial de dos palabras vacías $\in $ O(1), ahora si tenemos una palabra de tamaño n, y un objetivo de tamaño m, tendremos que T(n,m) ira aumentando en potencia de 4, es decir:
 \[
     T(n,m) = 4*T(n-1,m-1)
 \]
@@ -66,19 +66,18 @@ ademas tenemos que T(-1,-1) = 1, esto ya que en este caso solo retornara 0, deja
 \[
     T(n,m) = 4*4*...*T(-1,-1)
 \]
-Hay que tener en cuenta de que la relacion de recurrencia no se cumple siempre, por ejemplo si i<0, tenemos que ya no habran 4 llamadas recursivas sino 1, por ende como estamos considerando el peor caso tendremos una cota superior para la complejidad temporal, que será:
+Hay que tener en cuenta de que la relación de recurrencia no se cumple siempre, por ejemplo si i<0, tenemos que ya no habrán 4 llamadas recursivas sino 1, por ende como estamos considerando el peor caso tendremos una cota superior para la complejidad temporal, que será:
 \[
-    T(n,m) \in  O(4^{max(n,m)})
+    T(n,m) \in  O(4^{min(n,m)})
 \]
+Para la complejidad espacial tenemos que, ignorando la utilización de matrices/vectores de costos, el algoritmo utilizara un espacio extra O(1)\\
 
-Para la complejidad espacial tenemos que, ignorando la utilizacion de matrices/vectores de costos, el algoritmo utilizara un espacio extra O(1)\\
-
-Ejemplo de ejecucion:\\
-considerando los siquientes costos:
+Ejemplo de ejecución:\\
+considerando los siguientes costos:
 \begin{itemize}
     \item $costo\_sub(a,b) = 3$ si $a \neq b$ y $0$ si $a = b$
-    \item $costo\_ins(b) = 1$ para cualquier caracter $b$
-    \item $costo\_del(a) = 1$ para cualquier caracter $a$
+    \item $costo\_ins(b) = 1$ para cualquier carácter $b$
+    \item $costo\_del(a) = 1$ para cualquier carácter $a$
     \item $costo\_trans(a,b) = 1$ para cualquier par de caracteres adyacentes $a, b$
 \end{itemize}
 y los strings:
@@ -87,13 +86,13 @@ y los strings:
     \item objetivo = 'hola'
 \end{itemize}
 
-Con el proposito de resumir, solo se considerara el camino mas optimo para conseguir que la palabra se transforme en objetivo, comenzaremos llamando a la funcion con \textbf{i = 4} y \textbf{j = 3}.
+Con el propósito de resumir, solo se considerara el camino mas optimo para conseguir que la palabra se transforme en objetivo, comenzaremos llamando a la función con \textbf{i = 4} y \textbf{j = 3}.
 \begin{itemize}
-    \item DistanciaEdicionFB(4, 3)\\Se ejecutaran las llamadas recursivas de eliminar, insertar y sustituir, pero al momento de entrar en el condicional para transponer nos damos cuenta de que si se respeta, logrando transponer la palabra y llamandose recursivamente con \textbf{i = 2} y \textbf{j = 1}.
+    \item DistanciaEdicionFB(4, 3)\\Se ejecutaran las llamadas recursivas de eliminar, insertar y sustituir, pero al momento de entrar en el condicional para transponer nos damos cuenta de que si se respeta, logrando transponer la palabra y llamándose de forma recursiva con \textbf{i = 2} y \textbf{j = 1}.
     \item DistanciaEdicionFB(2, 1)\\Se comparan los dos caracteres, y notamos que son los mismos, por lo tanto solo se revisaran los siguientes caracteres \textbf{i = 1} y \textbf{j = 0}.
-    \item DistanciaEdicionFB(1, 0)\\En este momento en palabra tendremos c y en objetivo h, por lo cual se llama recursivamente a cada una de las funciones, pero no a transponer porque no cumple con las condiciones, aca se generan varios caminos pero se optara por que lo mejor sera eliminar, esto es porque ahora estamos buscando que 'zc' se transforme en 'h', con lo cual se podria simplemente sustituir c por h pero esto tiene un costo de 3, sale mas barato eliminar caracteres y luego insertarlos, lo cual tendria un costo de 2, por ende la llamada recursiva sera con \textbf{i = 0} y \textbf{j = 0}.
-    \item DistanciaEdicionFB(0, 0)\\siguiendo lo expuesto anteriormente tambien eliminaremos este caracter, por ende la llamada recursiva sera con \textbf{i = -1} y \textbf{j = 0}.
-    \item DistanciaEdicionFB(-1, 0)\\Ahora i pasa a ser negativo, esto indica que el subproblema se limita a solo agregar los caracteres que faltan (if de la linea 5 pseudocodigo), como solo nos queda esta opcion  la llamada recursiva sera con \textbf{i = -1} y \textbf{j = -1}.
+    \item DistanciaEdicionFB(1, 0)\\En este momento en palabra tendremos c y en objetivo h, por lo cual llama de forma recursiva a cada una de las funciones, pero no a transponer porque no cumple con las condiciones, aca se generan varios caminos pero se optara por que lo mejor sera eliminar, esto es porque ahora estamos buscando que 'zc' se transforme en 'h', con lo cual se podría simplemente sustituir c por h pero esto tiene un costo de 3, sale mas barato eliminar caracteres y luego insertarlos, lo cual tendría un costo de 2, por ende la llamada recursiva sera con \textbf{i = 0} y \textbf{j = 0}.
+    \item DistanciaEdicionFB(0, 0)\\siguiendo lo expuesto anteriormente también eliminaremos este carácter, por ende la llamada recursiva sera con \textbf{i = -1} y \textbf{j = 0}.
+    \item DistanciaEdicionFB(-1, 0)\\Ahora i pasa a ser negativo, esto indica que el sub-problema se limita a solo agregar los caracteres que faltan (if de la linea 5 pseudocodigo), como solo nos queda esta opción  la llamada recursiva sera con \textbf{i = -1} y \textbf{j = -1}.
     \item DistanciaEdicionFB(-1, -1)\\Como los dos indices son negativos retorna 0, indicando que ha terminado.
 \end{itemize}
 Recopilando los costos efectuados tenemos un total de 4, que corresponden a:\\
